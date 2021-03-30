@@ -8,4 +8,5 @@ public class Path {
     private int pathPosition;
     private Color pathColor;
     private boolean inPist;
+
 }

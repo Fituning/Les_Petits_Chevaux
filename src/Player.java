@@ -14,7 +14,7 @@ public class Player {
         this.team = new Team(teamColor);
     }
 
-    /* player stters */
+    /* player setters */
 
     public void setPseudo(String pseudo) {
         this.pseudo = pseudo;
