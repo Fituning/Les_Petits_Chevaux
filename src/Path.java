@@ -14,6 +14,8 @@ public class Path {
         this.pathPosition =0;
         this.pathColor = pathColor;
         this.inPist = False;
+
+
     }
 
     public int getPathPosition() {
@@ -24,4 +26,28 @@ public class Path {
         this.pathPosition = pathPosition;
     }
 
+    public void initPath(Piece p1,Piece p2,Piece p3, Piece p4){
+        p1.PiecePath().squareArray.squareNumber=new int[]{0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55};
+        p2.PiecePath().squareArray.squareNumber=new int[]{13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,0,1,2,3,4,5,6,7,8,9,10,11,12};
+        p3.PiecePath().squareArray.squareNumber=new int[]{26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25};
+        p4.PiecePath().squareArray.squareNumber=new int[]{39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38};
+
+        p1.getcurrentPosition=p1.PiecePath().squareArray[0];
+        p2.getcurrentPosition=p2.PiecePath().squareArray[0];
+        p3.getcurrentPosition=p3.PiecePath().squareArray[0];
+        p4.getcurrentPosition=p4.PiecePath().squareArray[0];
+        }
+       
+    
+
+ //take the result of a dice and the current position po a pawn and return the position after the deplacement
+//the for could be use if we want to show the deplacement of the pawn
+//I use nbOfCaseTraveled to now if the pawn must go to the center (don't now how because the square don't have numbers).   
+    public int movePiece(int di,Piece p1){
+
+        for(int i=di; i>0;i--){
+            system.out.println(p1.PiecePath.squareArray[p1.getcurrentPosition+1]);
+            return p1.PiecePath.squareArray[p1.getcurrentPosition+1];
+        }
+}
 }
