@@ -1,6 +1,6 @@
 package Les_Petits_Chevaux.src;
 
-
+//test
 public class Main {
     public static void main(String[] args) {
         Square[] squareArray2 = new Square[76];
