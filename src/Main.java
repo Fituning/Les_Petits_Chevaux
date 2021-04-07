@@ -1,6 +1,5 @@
 package Les_Petits_Chevaux.src;
 
-//test
 public class Main {
     public static void main(String[] args) {
         Square[] squareArray2 = new Square[76];
@@ -9,8 +8,56 @@ public class Main {
             System.out.println(squareArray2[i]);
         }
         
-    }
+    
+    //test pour la présence de plusieur pion sur une case
+    
+   	/*Piece p1 = new Piece(0);
+   	Piece p2 = new Piece(4);
+   	List<Piece> pieceIn = new ArrayList<Piece>();
+   	pieceIn.add(p2);
+   	pieceIn.add(p1);
+   	squareArray2[p1.getcurrentPosition()].setPieceIn(pieceIn);
+   	
+   	 int lim = squareArray2[p1.getcurrentPosition()].getPieceIn().size();
+   	 
+   		if(squareArray2[p1.getcurrentPosition()].getPieceIn()!=null)
+   			
+   			for (int i=0;i<lim;i++) {
+   				{
+   					System.out.print(squareArray2[p1.getcurrentPosition()].getPieceIn().get(i).getId());
+   				}		
+   			}
+   	comparePiecePosition(p1,squareArray2);  
+   	
+   	System.out.print(squareArray2[p1.getcurrentPosition()].getPieceIn().get(0).getId());
+   	System.out.print(p2.getId());*/
+     
+     
+     
+     //verifi si un pions est deja présent sur une case si c'est le cas vérifie si le pion qui arrive est de la meme équipe que le pion deja présent, si ce n'est pas le cas 
+     //retire le pion de la case et le renvoi a sa maison (pas encore fait cette partie)
+     
+     public static void comparePiecePosition(Piece p1, Square[] sq){
+   	 int lim = sq[p1.getcurrentPosition()].getPieceIn().size();
+   	 
+   		if(sq[p1.getcurrentPosition()].getPieceIn()!=null){
+   			
+   			for (int i=0;i<lim;i++) {
+   				{
+   					if(sq[p1.getcurrentPosition()].getPieceIn().get(i).getId()!=p1.getId() && sq[p1.getcurrentPosition()].isSafeZone()==false) {
+   						
+   						System.out.print("le pion returne a sa maison !");
+   				}
+   					else {
+   						System.out.print("rien");
+   					}
+   				}
 
+   				
+   			}
+   		}
+   } 
+ }
     /*public static Square[] initSquares(){
 
         Square[] squareArray = new Square[76];
