@@ -1,7 +1,7 @@
 package Les_Petits_Chevaux.src;
 
 import java.awt.Color;
-
+//test commit 
 public class Main extends SquareArray{
     public static void main(String[] args) {
         /*Square[] squareArray2 = new Square[52];

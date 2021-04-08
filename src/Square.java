@@ -3,9 +3,7 @@ package Les_Petits_Chevaux.src;
 import java.util.ArrayList;
 import java.util.List;
 
-import Les_Petits_Chevaux.Piece;
-import Les_Petits_Chevaux.Position;
-import Les_Petits_Chevaux.Square;
+
 
 public class Square {
     private String squareNumber;
@@ -34,14 +32,14 @@ public class Square {
 		
 	}
 	
-	  public static void comparePiecePosition(Piece p1, Square[] sq){
+	  public void comparePiecePosition(Piece p1, Square[] sq){
 			 int lim = sq[p1.getcurrentPosition()].getPieceIn().size();
 			 
 				if(sq[p1.getcurrentPosition()].getPieceIn()!=null){
 					
 					for (int i=0;i<lim;i++) {
 						{
-							if(sq[p1.getcurrentPosition()].getPieceIn().get(i).getId()!=p1.getId() && sq[p1.getcurrentPosition()].isSafeZone()==false) {
+							if(sq[p1.getcurrentPosition()].getPieceIn().get(i).getColor()!=p1.getColor() && sq[p1.getcurrentPosition()].isSafeZone()==false) {
 								System.out.print("le pion returne a sa maison !");
 						}
 							else {
