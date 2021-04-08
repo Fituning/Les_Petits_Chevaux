@@ -1,8 +1,11 @@
 package Les_Petits_Chevaux.src;
 
+import Les_Petits_Chevaux.Piece;
 import Les_Petits_Chevaux.src.Square;
 import java.awt.*;
 import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Path {
@@ -37,17 +40,19 @@ public class Path {
     }
     
     //refaire la fonction quand on aurait les chemin par couleur
-    public int movePiece(int di,Piece p1, Square[] sq){
+    public int movePiece(int di,Piece p1){
     	List<Piece> pieceIn = new ArrayList<Piece>();
-        for(int i=di; i>0;i--){
-            System.out.println(p1.getPiecePath().squareArray[p1.getcurrentPosition()+1]);
-            pieceIn.add(p1);
-            sq[p1.getcurrentPosition()+1].setPieceIn(pieceIn);
+       
+            System.out.println(p1.getPiecePath().squareArray[p1.getcurrentPosition()+di]);
             pieceIn.remove(p1);
-            sq[p1.getcurrentPosition()].setPieceIn(pieceIn);
+            this.squareArray[p1.getcurrentPosition()].setPieceIn(pieceIn);
             
-        }
-        
+            pieceIn.add(p1); 
+            this.squareArray[p1.getcurrentPosition()+di].setPieceIn(pieceIn);
+            
+            this.squareArray[p1.getcurrentPosition()].comparePiecePosition(p1, this.squareArray);
+            
+            p1.setCurrentPosition(p1.getcurrentPosition()+di);
         return p1.getPiecePath().squareArray[p1.getcurrentPosition()].getSquareNumber();
 }
 

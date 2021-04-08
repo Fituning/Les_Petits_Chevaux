@@ -5,6 +5,7 @@ import java.awt.Color;
 import Les_Petits_Chevaux.Path;
 import Les_Petits_Chevaux.Piece;
 
+
 public class Piece {
     private Color color;
     private int id;
