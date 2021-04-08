@@ -13,10 +13,11 @@ public class Piece {
     private int currentPosition;
 
 
-Piece(Color color){
+Piece(Color color,Square[] squareArray){
         this.color=color;
         this.pathCompleted=false;
-        this.piecePath.setInPist(false);
+        this.piecePath = new Path(color);
+        this.piecePath.initPath(color,squareArray);
         this.id=0;
         this.currentPosition=0;
 }
@@ -39,6 +40,10 @@ public int getId() {
 }
 public void setId(int nb) {
 	this.id = nb;
+}
+
+public Square getPieceSquare(int i){
+    return piecePath.getSquare(i);
 }
 
 //check if a dice roll correponding to a pawn is equal to 6 and if this is th case set the "inPist" value of the pawn to true

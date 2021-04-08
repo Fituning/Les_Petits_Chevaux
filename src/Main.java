@@ -4,7 +4,7 @@ import java.awt.Color;
 
 public class Main extends SquareArray{
     public static void main(String[] args) {
-        Square[] squareArray2 = new Square[52];
+        /*Square[] squareArray2 = new Square[52];
         squareArray2=initSquares();
         for(int i=0; i< 52;i++){
             System.out.println(squareArray2[i]);
@@ -22,7 +22,16 @@ public class Main extends SquareArray{
         squareArrayYellow=initSquaresColor(Color.YELLOW);
         for(int i=0; i< 6;i++){
             System.out.println(squareArrayYellow[i]);
+        }*/
+        Square[] squareArray = new Square[57];
+        squareArray=initSquares();
+
+        Piece PieceG1 = new Piece(Color.BLUE, squareArray);
+        for(int i=0; i< 57;i++){
+            System.out.println(PieceG1.getPieceSquare(i));
         }
+        
+
         
     
     //test pour la pr�sence de plusieur pion sur une case
