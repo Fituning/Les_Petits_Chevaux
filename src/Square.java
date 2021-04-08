@@ -8,7 +8,7 @@ import Les_Petits_Chevaux.Position;
 import Les_Petits_Chevaux.Square;
 
 public class Square {
-    private int squareNumber;
+    private String squareNumber;
     private Position squarePosition;
     private boolean safeZone;
     private List<Piece> pieceIn = new ArrayList<Piece>();
@@ -17,11 +17,16 @@ public class Square {
 
 
 
-	public Square(boolean safeZone, int x, int y,int square){
+	public Square(boolean safeZone,int x, int y,String square){
         this.safeZone = safeZone ;
         this.squarePosition = new Position(x, y);
         this.squareNumber = square;
     }
+	public Square(boolean safeZone,Position position,String square){
+		this.safeZone = safeZone ;
+        this.squarePosition = position;
+        this.squareNumber = square;
+	}
 
 	
 	public void occupationActualizer(Piece p2, Square[] sq) {
@@ -74,6 +79,6 @@ public class Square {
 
 	@Override
     public String toString() {
-        return "Square number : " + squareNumber + " , en x = " + squarePosition.getX()+" et y = " + squarePosition.getY()+". Is in safe zone " + safeZone;
+        return "Square Name : " + squareNumber + " , en x = " + squarePosition.getX()+" et y = " + squarePosition.getY()+". Is in safe zone " + safeZone;
     }
 }
