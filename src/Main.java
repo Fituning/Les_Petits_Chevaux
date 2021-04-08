@@ -4,6 +4,9 @@ import java.awt.Color;
 //test commit 
 public class Main extends SquareArray{
     public static void main(String[] args) {
+
+        /**** Zone debug sale de Carlo *****/
+
         /*Square[] squareArray2 = new Square[52];
         squareArray2=initSquares();
         for(int i=0; i< 52;i++){
@@ -31,7 +34,7 @@ public class Main extends SquareArray{
             System.out.println(PieceG1.getPieceSquare(i));
         }
         
-
+        /**** Zone debug sale de Cécé ****/
         
     
     //test pour la pr�sence de plusieur pion sur une case

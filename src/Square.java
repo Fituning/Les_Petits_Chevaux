@@ -65,12 +65,12 @@ public class Square {
 		this.pieceIn = pieceIn;
 	}
 
-	public int getSquareNumber() {
+	public String getSquareNumber() {
 		return squareNumber;
 		}
 
 
-	public void setSquareNumber(int squareNumber) {
+	public void setSquareNumber(String squareNumber) {
 		this.squareNumber = squareNumber;
 		}
 

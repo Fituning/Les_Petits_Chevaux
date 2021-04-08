@@ -10,13 +10,11 @@ import java.util.List;
 public class Path extends SquareArray {
     private Square[] squareArray = new Square[57];
     private int pathPosition;
-    private Color pathColor;
     private boolean inPist;
     
 
     public Path(Color pathColor) {
         this.pathPosition =0;
-        this.pathColor = pathColor;
         this.inPist = false;
     }
 
@@ -42,7 +40,7 @@ public class Path extends SquareArray {
 
     
     //refaire la fonction quand on aurait les chemin par couleur
-    public int movePiece(int di,Piece p1){
+    public String movePiece(int di,Piece p1){
     	List<Piece> pieceIn = new ArrayList<Piece>();
        
             System.out.println(p1.getPiecePath().squareArray[p1.getcurrentPosition()+di]);
