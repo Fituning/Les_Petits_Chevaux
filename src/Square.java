@@ -3,9 +3,7 @@ package Les_Petits_Chevaux.src;
 import java.util.ArrayList;
 import java.util.List;
 
-import Les_Petits_Chevaux.Piece;
-import Les_Petits_Chevaux.Position;
-import Les_Petits_Chevaux.Square;
+
 
 public class Square {
     private String squareNumber;

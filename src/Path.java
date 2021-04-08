@@ -1,9 +1,7 @@
 package Les_Petits_Chevaux.src;
 
-import Les_Petits_Chevaux.Piece;
-import Les_Petits_Chevaux.src.Square;
+
 import java.awt.*;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
