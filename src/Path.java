@@ -38,24 +38,25 @@ public class Path extends SquareArray {
         return squareArray[i];
     }
 
-    
-    //refaire la fonction quand on aurait les chemin par couleur
-    public String movePiece(int di,Piece p1){
-    	List<Piece> pieceIn = new ArrayList<Piece>();
-       
-            System.out.println(p1.getPiecePath().squareArray[p1.getcurrentPosition()+di]);
-            pieceIn.remove(p1);
-            this.squareArray[p1.getcurrentPosition()].setPieceIn(pieceIn);
-            
-            pieceIn.add(p1); 
-            this.squareArray[p1.getcurrentPosition()+di].setPieceIn(pieceIn);
-            
-            this.squareArray[p1.getcurrentPosition()].comparePiecePosition(p1, this.squareArray);
-            
-            p1.setCurrentPosition(p1.getcurrentPosition()+di);
-        return p1.getPiecePath().squareArray[p1.getcurrentPosition()].getSquareNumber();
+
+//the good one problème sur l'ajout des pièece dans pieceIn mais sinon ça marche
+    public void refreshPawn(Piece p1, int dice){
+        List<Piece> pieceIn = new ArrayList<Piece>();
+        pieceIn.remove(p1);
+        this.squareArray[p1.getPiecePath().getPathPosition()].setPieceIn(pieceIn);
+        
+       String test=p1.getPieceSquare(p1.getPiecePath().getPathPosition()+dice).getSquareNumber();
+       int pos=Integer.parseInt(test);
+
+        pieceIn.add(p1);
+        p1.getPiecePath().setPathPosition(p1.getPiecePath().getPathPosition()+dice);
+        this.squareArray[p1.getPiecePath().getPathPosition()].setPieceIn(pieceIn);
+
+       System.out.print("pion present "+ this.squareArray[p1.getPiecePath().getPathPosition()].getPieceIn().get(0).getColor() +"\n");
+        System.out.print("position final :"+ p1.getPieceSquare(p1.getPiecePath().getPathPosition()).getSquareNumber()+"\n");
     }
-    
+
+
     public void initPath(Color color, Square[] defaultArray){
         int squareNumber = 0  ;
         if(color.equals(Color.GREEN)){
