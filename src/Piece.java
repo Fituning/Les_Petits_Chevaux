@@ -17,7 +17,7 @@ Piece(Color color,Square[] squareArray){
         this.pathCompleted=false;
         this.piecePath = new Path(color);
         this.piecePath.initPath(color,squareArray);
-        this.id=0;
+        this.id=12;
         this.currentPosition=0;
 }
 
