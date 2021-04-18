@@ -31,19 +31,19 @@ public class Square {
 		
 		
 	}
-	
+	//marche pas trop
 	  public void comparePiecePosition(Piece p1, Square[] sq){
-			 int lim = sq[p1.getcurrentPosition()].getPieceIn().size();
-			 
-				if(sq[p1.getcurrentPosition()].getPieceIn()!=null){
+			 int lim = sq[p1.getPiecePath().getPathPosition()].getPieceIn().size();
+			 //System.out.print(sq[p1.getPiecePath().getPathPosition()].getPieceIn().get(0).getColor());
+				if(sq[p1.getPiecePath().getPathPosition()].getPieceIn()!=null){
 					
 					for (int i=0;i<lim;i++) {
 						{
-							if(sq[p1.getcurrentPosition()].getPieceIn().get(i).getColor()!=p1.getColor() && sq[p1.getcurrentPosition()].isSafeZone()==false) {
+							if(sq[p1.getPiecePath().getPathPosition()].getPieceIn().get(i).getColor()!=p1.getColor() && sq[p1.getPiecePath().getPathPosition()].isSafeZone()==false) {
 								System.out.print("le pion returne a sa maison !");
 						}
 							else {
-								System.out.print("rien");
+								System.out.print("rien \n");
 							}
 						}
 					}
