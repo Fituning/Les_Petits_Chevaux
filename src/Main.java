@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
 //test commit 
 public class Main extends SquareArray{
     public static void main(String[] args) {
@@ -45,11 +46,13 @@ Random random = new Random();
 int nb;
 nb = 1+random.nextInt(6);
 System.out.print(nb);
+nb=14;
+int nb1=1;
 
 System.out.print("position initiale1 :"+PieceG1.getPieceSquare(0).getSquareNumber()+"\n");
 System.out.print("position initiale2 :"+PieceG2.getPieceSquare(0).getSquareNumber()+"\n");
 
-PieceG1.getPiecePath().refreshPawn(PieceG1,nb);
+PieceG1.getPiecePath().refreshPawn(PieceG1,nb1);
 PieceG2.getPiecePath().refreshPawn(PieceG2,nb);
 
     //test pour la pr�sence de plusieur pion sur une case
@@ -77,26 +80,8 @@ PieceG2.getPiecePath().refreshPawn(PieceG2,nb);
      
      
     }
-     //verifie si un pions est deja pr�sent sur une case si c'est le cas v�rifie si le pion qui arrive est de la meme �quipe que le pion deja pr�sent, si ce n'est pas le cas 
-     //retire le pion de la case et le renvoi a sa maison (pas encore fait cette partie)
-     //new version not tested
-     public static void comparePiecePosition(Piece p1, Square[] sq){
-        int lim = sq[p1.getPiecePath().getPathPosition()].getPieceIn().size();
-        
-           if(sq[p1.getPiecePath().getPathPosition()].getPieceIn()!=null){
-               
-               for (int i=0;i<lim;i++) {
-                   {
-                       if(sq[p1.getPiecePath().getPathPosition()].getPieceIn().get(i).getColor()!=p1.getColor() && sq[p1.getPiecePath().getPathPosition()].isSafeZone()==false) {
-                           System.out.print("le pion returne a sa maison !");
-                   }
-                       else {
-                           System.out.print("rien");
-                       }
-                   }
-               }
-           }
-   } 
+
+
 //sshitty test version
 
     /*public static Square[] initSquares(){

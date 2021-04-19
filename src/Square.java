@@ -27,20 +27,15 @@ public class Square {
 	}
 
 	
-	public void occupationActualizer(Piece p2, Square[] sq) {
-		
-		
-	}
-	//marche pas trop
+	//marche
 	  public void comparePiecePosition(Piece p1, Square[] sq){
 			 int lim = sq[p1.getPiecePath().getPathPosition()].getPieceIn().size();
-			 //System.out.print(sq[p1.getPiecePath().getPathPosition()].getPieceIn().get(0).getColor());
 				if(sq[p1.getPiecePath().getPathPosition()].getPieceIn()!=null){
 					
 					for (int i=0;i<lim;i++) {
 						{
-							if(sq[p1.getPiecePath().getPathPosition()].getPieceIn().get(i).getColor()!=p1.getColor() && sq[p1.getPiecePath().getPathPosition()].isSafeZone()==false) {
-								System.out.print("le pion returne a sa maison !");
+							if(sq[p1.getPiecePath().getPathPosition()].isSafeZone()==false && sq[p1.getPiecePath().getPathPosition()].getPieceIn().get(i).getColor()!=p1.getColor()) {
+								System.out.print("le pion returne a sa maison ! \n ");
 						}
 							else {
 								System.out.print("rien \n");
@@ -64,6 +59,15 @@ public class Square {
 	public void setPieceIn(List<Piece> pieceIn) {
 		this.pieceIn = pieceIn;
 	}
+
+	public void addPieceIn(Piece p) {
+		this.pieceIn.add(p);
+	}
+
+	public void removePieceIn(Piece p) {
+		this.pieceIn.remove(p);
+	}
+
 
 	public String getSquareNumber() {
 		return squareNumber;

@@ -41,18 +41,17 @@ public class Path extends SquareArray {
 
 //the good one problème sur l'ajout des pièece dans pieceIn mais sinon ça marche
     public void refreshPawn(Piece p1, int dice){
-        List<Piece> pieceIn = new ArrayList<Piece>();
-        pieceIn.remove(p1);
-        this.squareArray[p1.getPiecePath().getPathPosition()].setPieceIn(pieceIn);
-        
+    
+        this.squareArray[p1.getPiecePath().getPathPosition()].removePieceIn(p1);
+       
        String test=p1.getPieceSquare(p1.getPiecePath().getPathPosition()+dice).getSquareNumber();
        int pos=Integer.parseInt(test);
-
-        pieceIn.add(p1);
+        
         p1.getPiecePath().setPathPosition(p1.getPiecePath().getPathPosition()+dice);
-        this.squareArray[p1.getPiecePath().getPathPosition()].setPieceIn(pieceIn);
+        this.squareArray[p1.getPiecePath().getPathPosition()].addPieceIn(p1);
 
-       System.out.print("pion present "+ this.squareArray[p1.getPiecePath().getPathPosition()].getPieceIn().get(0).getColor() +"\n");
+        this.squareArray[p1.getPiecePath().getPathPosition()].comparePiecePosition(p1,this.squareArray);
+
         System.out.print("position final :"+ p1.getPieceSquare(p1.getPiecePath().getPathPosition()).getSquareNumber()+"\n");
     }
 
