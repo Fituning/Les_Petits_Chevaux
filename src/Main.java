@@ -4,11 +4,25 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Scanner;
+
+
+
 
 //test commit 
 public class Main extends SquareArray{
     public static void main(String[] args) {
+//trying to implement the game loop
+//player initialisation (not sure if it is the best way)
+Player player1=new Player();
+Player player2=new Player();
+Player player3=new Player();
+Player player4=new Player();
 
+player1.initPlayers(player1,1);
+player2.initPlayers(player2,2);
+player3.initPlayers(player3,3);
+player4.initPlayers(player4,4);
         /**** Zone debug sale de Carlo *****/
 
         /*Square[] squareArray2 = new Square[52];
