@@ -44,7 +44,7 @@ public class Team {
 
     /* creation of an Array of Pieces */
 
-    private Piece[] newPieces(Color teamColor){
+    public Piece[] newPieces(Color teamColor){
         Piece[] pieces = new Piece[4];
         /*declaration of the 4 new Pieces */
         return pieces;
