@@ -5,7 +5,7 @@ import java.awt.*;
 public class Team {
     private Color teamColor;
     private int points;
-    private Piece[] piecesArray;
+    Piece[] piecesArray;
 
 
     /* definition of the construct method*/ 
@@ -48,5 +48,22 @@ public class Team {
         Piece[] pieces = new Piece[4];
         /*declaration of the 4 new Pieces */
         return pieces;
+    }
+
+
+    public boolean win(Player p1){
+        int cmp=0;
+        for(int i=0;i<4;i++){
+            if(p1.getTeam().piecesArray[i].isPathCompleted()){
+                cmp=cmp+1;
+            }
+        }
+        if(cmp==4){
+            return true;
+        }
+        else{
+            return false;
+        }
+
     }
 }
