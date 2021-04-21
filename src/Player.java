@@ -73,7 +73,7 @@ public class Player {
                     pl1.team.newPieces(Color.YELLOW);
 
                 default:
-                  // CHANGER C4EST DE LA MERDE
+                  
                 }
                 System.out.print(pl1.getPseudo());
                 System.out.print(pl1.getTeam().getTeamColor());
