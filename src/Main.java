@@ -14,6 +14,11 @@ public class Main extends SquareArray{
     public static void main(String[] args) {
 //trying to implement the game loop
 //player initialisation (not sure if it is the best way)
+Random random = new Random();
+int dice;
+dice = 1+random.nextInt(6);
+Square[] squareArray = new Square[57];
+squareArray=initSquares();
 Player player1=new Player();
 Player player2=new Player();
 Player player3=new Player();
@@ -23,6 +28,19 @@ player1.initPlayers(player1,1);
 player2.initPlayers(player2,2);
 player3.initPlayers(player3,3);
 player4.initPlayers(player4,4);
+
+
+//the NullpointerException occure because Pieces are not initialized correctly
+while(player1.getTeam().win(player1) || player2.getTeam().win(player2) || player3.getTeam().win(player3) || player4.getTeam().win(player4)){
+    System.out.println("tour de "+ player1.getPseudo());
+//affichage bouton pour lancer les dés et choisir la pièce à bougé
+//il faut initialiser les tableau de piece correctement
+    player1.getTeam().piecesArray[0].getPiecePath().refreshPawn(player1.getTeam().piecesArray[0],dice);
+
+    System.out.println("tour de "+ player2.getPseudo());
+
+//...
+}
         /**** Zone debug sale de Carlo *****/
 
         /*Square[] squareArray2 = new Square[52];
@@ -44,21 +62,21 @@ player4.initPlayers(player4,4);
         for(int i=0; i< 6;i++){
             System.out.println(squareArrayYellow[i]);
         }*/
-        Square[] squareArray = new Square[57];
+        /*Square[] squareArray = new Square[57];
         squareArray=initSquares();
 
         Piece PieceG1 = new Piece(Color.RED, squareArray);
         Piece PieceG2 = new Piece(Color.BLUE, squareArray);
         for(int i=0; i< 57;i++){
             System.out.println(PieceG1.getPieceSquare(i));
-        }
+        }*/
         
         /**** Zone debug sale de Cécé ****/
         
 
-Random random = new Random();
+/*Random randome = new Random();
 int nb;
-nb = 1+random.nextInt(6);
+nb = 1+randome.nextInt(6);
 System.out.print(nb);
 nb=14;
 int nb1=1;
@@ -67,7 +85,7 @@ System.out.print("position initiale1 :"+PieceG1.getPieceSquare(0).getSquareNumbe
 System.out.print("position initiale2 :"+PieceG2.getPieceSquare(0).getSquareNumber()+"\n");
 
 PieceG1.getPiecePath().refreshPawn(PieceG1,nb1);
-PieceG2.getPiecePath().refreshPawn(PieceG2,nb);
+PieceG2.getPiecePath().refreshPawn(PieceG2,nb);*/
 
     //test pour la pr�sence de plusieur pion sur une case
     
