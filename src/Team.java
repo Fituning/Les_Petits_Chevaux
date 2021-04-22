@@ -12,7 +12,7 @@ public class Team {
     Team(Color teamColor){
         this.teamColor = teamColor;
         this.points = 0;
-        this.piecesArray = newPieces(teamColor);
+        //this.piecesArray = newPieces(teamColor);
     }
 
     /* player stters */
@@ -44,9 +44,14 @@ public class Team {
 
     /* creation of an Array of Pieces */
 
-    public Piece[] newPieces(Color teamColor){
+    public Piece[] newPieces(Color teamColor, Square[] squareAr){
         Piece[] pieces = new Piece[4];
         /*declaration of the 4 new Pieces */
+        for (int i=0;i<4;i++){
+
+            pieces[i]=new Piece(teamColor,squareAr);
+        }
+        this.piecesArray=pieces;
         return pieces;
     }
 
