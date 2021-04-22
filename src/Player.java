@@ -41,7 +41,7 @@ public class Player {
         return team;
     }
 
-    public void initPlayers(Player pl1,int nb){
+    public void initPlayers(Player pl1,int nb, Square[] squareAr){
         System.out.print("chose your nickname: ");
         String scra;
          Scanner sc = new Scanner( System.in ); 
@@ -55,22 +55,22 @@ public class Player {
                 case 1:
                     pl1.setTeam(Color.RED);
                     System.out.print("You are in the RED team \n");
-                    pl1.team.newPieces(Color.RED);
+                    pl1.team.newPieces(Color.RED,squareAr);
                   break;
                 case 2:
                     pl1.setTeam(Color.BLUE); 
                     System.out.print("You are in the BLUE team \n");
-                    pl1.team.newPieces(Color.BLUE);
+                    pl1.team.newPieces(Color.BLUE,squareAr);
                   break;
                 case 3:
                     pl1.setTeam(Color.GREEN);
                     System.out.print("You are in the GREEN team \n");
-                    pl1.team.newPieces(Color.GREEN);
+                    pl1.team.newPieces(Color.GREEN,squareAr);
                   break;
                 case 4:
                     pl1.setTeam(Color.YELLOW);
                     System.out.print("You are in the YELLOW team \n");
-                    pl1.team.newPieces(Color.YELLOW);
+                    pl1.team.newPieces(Color.YELLOW,squareAr);
 
                 default:
                   
