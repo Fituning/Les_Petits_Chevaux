@@ -39,7 +39,7 @@ public class Path extends SquareArray {
     }
 
 
-//the good one problème sur l'ajout des pièece dans pieceIn mais sinon ça marche
+//does not work for the end game
     public void refreshPawn(Piece p1, int dice){
     
         this.squareArray[p1.getPiecePath().getPathPosition()].removePieceIn(p1);
