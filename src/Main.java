@@ -24,20 +24,37 @@ Player player2=new Player();
 Player player3=new Player();
 Player player4=new Player();
 
-player1.initPlayers(player1,1);
-player2.initPlayers(player2,2);
-player3.initPlayers(player3,3);
-player4.initPlayers(player4,4);
+player1.initPlayers(player1,1,squareArray);
+player2.initPlayers(player2,2,squareArray);
+player3.initPlayers(player3,3,squareArray);
+player4.initPlayers(player4,4,squareArray);
 
 
 //the NullpointerException occure because Pieces are not initialized correctly
-while(player1.getTeam().win(player1) || player2.getTeam().win(player2) || player3.getTeam().win(player3) || player4.getTeam().win(player4)){
+while(player1.getTeam().win(player1)==false || player2.getTeam().win(player2)==false || player3.getTeam().win(player3)==false || player4.getTeam().win(player4)==false){
     System.out.println("tour de "+ player1.getPseudo());
 //affichage bouton pour lancer les dés et choisir la pièce à bougé
 //il faut initialiser les tableau de piece correctement
+    random = new Random();
+    dice = 1+random.nextInt(6);
     player1.getTeam().piecesArray[0].getPiecePath().refreshPawn(player1.getTeam().piecesArray[0],dice);
 
+
     System.out.println("tour de "+ player2.getPseudo());
+    random = new Random();
+    dice = 1+random.nextInt(6);
+    player2.getTeam().piecesArray[0].getPiecePath().refreshPawn(player2.getTeam().piecesArray[0],dice);
+
+    System.out.println("tour de "+ player3.getPseudo());
+    random = new Random();
+    dice = 1+random.nextInt(6);
+    player3.getTeam().piecesArray[0].getPiecePath().refreshPawn(player3.getTeam().piecesArray[0],dice);
+
+    System.out.println("tour de "+ player4.getPseudo());
+    random = new Random();
+    dice = 1+random.nextInt(6);
+    player4.getTeam().piecesArray[0].getPiecePath().refreshPawn(player4.getTeam().piecesArray[0],dice);
+
 
 //...
 }
