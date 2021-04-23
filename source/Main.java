@@ -6,9 +6,6 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-
-
-
 //test commit 
 public class Main extends SquareArray{
     public static void main(String[] args) {
@@ -30,30 +27,67 @@ player3.initPlayers(player3,3,squareArray);
 player4.initPlayers(player4,4,squareArray);
 
 
+
 //the NullpointerException occure because Pieces are not initialized correctly
 while(player1.getTeam().win(player1)==false || player2.getTeam().win(player2)==false || player3.getTeam().win(player3)==false || player4.getTeam().win(player4)==false){
     System.out.println("tour de "+ player1.getPseudo());
 //affichage bouton pour lancer les dés et choisir la pièce à bougé
 //il faut initialiser les tableau de piece correctement
+
+
     random = new Random();
     dice = 1+random.nextInt(6);
+    System.out.println("DICE VALUE"+dice);
+    
+    if(player1.getTeam().piecesArray[0].getPiecePath().isInPist()==true){
     player1.getTeam().piecesArray[0].getPiecePath().refreshPawn(player1.getTeam().piecesArray[0],dice);
-
+    }
+    else{
+        if(dice==6){
+            player1.getTeam().piecesArray[0].getPiecePath().setInPist(true);
+        }
+    }
 
     System.out.println("tour de "+ player2.getPseudo());
     random = new Random();
-    dice = 1+random.nextInt(6);
-    player2.getTeam().piecesArray[0].getPiecePath().refreshPawn(player2.getTeam().piecesArray[0],dice);
+    dice = 1;
+    System.out.println("DICE VALUE"+dice);
+    if(player2.getTeam().piecesArray[0].getPiecePath().isInPist()==true){
+        player2.getTeam().piecesArray[0].getPiecePath().refreshPawn(player2.getTeam().piecesArray[0],dice);
+        }
+        else{
+            if(dice==6){
+                player2.getTeam().piecesArray[0].getPiecePath().setInPist(true);
+            }
+        }
+
+
 
     System.out.println("tour de "+ player3.getPseudo());
     random = new Random();
     dice = 1+random.nextInt(6);
-    player3.getTeam().piecesArray[0].getPiecePath().refreshPawn(player3.getTeam().piecesArray[0],dice);
+    System.out.println("DICE VALUE"+dice);
+    if(player3.getTeam().piecesArray[0].getPiecePath().isInPist()==true){
+        player3.getTeam().piecesArray[0].getPiecePath().refreshPawn(player3.getTeam().piecesArray[0],dice);
+        }
+        else{
+            if(dice==6){
+                player3.getTeam().piecesArray[0].getPiecePath().setInPist(true);
+            }
+        }
 
     System.out.println("tour de "+ player4.getPseudo());
     random = new Random();
     dice = 1+random.nextInt(6);
-    player4.getTeam().piecesArray[0].getPiecePath().refreshPawn(player4.getTeam().piecesArray[0],dice);
+    System.out.println("DICE VALUE"+dice);
+    if(player4.getTeam().piecesArray[0].getPiecePath().isInPist()==true){
+        player4.getTeam().piecesArray[0].getPiecePath().refreshPawn(player4.getTeam().piecesArray[0],dice);
+        }
+        else{
+            if(dice==6){
+                player4.getTeam().piecesArray[0].getPiecePath().setInPist(true);
+            }
+        }
 
 
 //...
@@ -220,3 +254,14 @@ PieceG2.getPiecePath().refreshPawn(PieceG2,nb);*/
 
     
 }
+
+
+
+
+
+
+
+
+
+
+
