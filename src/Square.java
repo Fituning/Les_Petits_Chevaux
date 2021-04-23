@@ -36,6 +36,10 @@ public class Square {
 						{
 							if(sq[p1.getPiecePath().getPathPosition()].isSafeZone()==false && sq[p1.getPiecePath().getPathPosition()].getPieceIn().get(i).getColor()!=p1.getColor()) {
 								System.out.print("le pion returne a sa maison ! \n ");
+								 p1.getPiecePath().setPathPosition(p1.getPiecePath().getPathPosition()-p1.getPiecePath().getPathPosition());
+								 System.out.print("LE PION EST MAITENANT SUR LA CASE :"+ p1.getPieceSquare(p1.getPiecePath().getPathPosition()).getSquareNumber()+"\n");
+								p1.getPiecePath().setInPist(false);
+
 						}
 							else {
 								System.out.print("rien \n");
