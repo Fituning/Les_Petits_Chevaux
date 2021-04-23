@@ -12,23 +12,22 @@ import java.util.Scanner;
 //test commit 
 public class Main extends SquareArray{
     public static void main(String[] args) {
-        /*
-    //trying to implement the game loop
-    //player initialisation (not sure if it is the best way)
-    Random random = new Random();
-    int dice;
-    dice = 1+random.nextInt(6);
-    Square[] squareArray = new Square[57];
-    squareArray=initSquares();
-    Player player1=new Player();
-    Player player2=new Player();
-    Player player3=new Player();
-    Player player4=new Player();
+//trying to implement the game loop
+//player initialisation (not sure if it is the best way)
+Random random = new Random();
+int dice;
+dice = 1+random.nextInt(6);
+Square[] squareArray = new Square[57];
+squareArray=initSquares();
+Player player1=new Player();
+Player player2=new Player();
+Player player3=new Player();
+Player player4=new Player();
 
-    player1.initPlayers(player1,1,squareArray);
-    player2.initPlayers(player2,2,squareArray);
-    player3.initPlayers(player3,3,squareArray);
-    player4.initPlayers(player4,4,squareArray);
+player1.initPlayers(player1,1,squareArray);
+player2.initPlayers(player2,2,squareArray);
+player3.initPlayers(player3,3,squareArray);
+player4.initPlayers(player4,4,squareArray);
 
 
 //the NullpointerException occure because Pieces are not initialized correctly
@@ -59,10 +58,9 @@ while(player1.getTeam().win(player1)==false || player2.getTeam().win(player2)==f
 
 //...
 }
-*/
         /**** Zone debug sale de Carlo *****/
 
-        Square[] squareArray2 = new Square[52];
+        /*Square[] squareArray2 = new Square[52];
         squareArray2=initSquares();
         for(int i=0; i< 52;i++){
             System.out.println(squareArray2[i]);
@@ -80,15 +78,15 @@ while(player1.getTeam().win(player1)==false || player2.getTeam().win(player2)==f
         squareArrayYellow=initSquaresColor(Color.YELLOW);
         for(int i=0; i< 6;i++){
             System.out.println(squareArrayYellow[i]);
-        }
-        Square[] squareArray = new Square[57];
+        }*/
+        /*Square[] squareArray = new Square[57];
         squareArray=initSquares();
 
         Piece PieceG1 = new Piece(Color.RED, squareArray);
         Piece PieceG2 = new Piece(Color.BLUE, squareArray);
         for(int i=0; i< 57;i++){
             System.out.println(PieceG1.getPieceSquare(i));
-        }
+        }*/
         
         /**** Zone debug sale de Cécé ****/
         

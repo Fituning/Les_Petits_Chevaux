@@ -6,7 +6,7 @@ public class SquareArray{
 
     public static Square[] initSquares(){
         Square[] squareArray = new Square[52];
-        Position squarePosition = new Position(8, 0);
+        Position squarePosition = new Position(9, 1);
         int numberSquare=0;
         int translation[]  = {1,2,1,3,1,3,4,3,4,2,4,2};
         int t = 0;
