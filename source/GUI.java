@@ -1,34 +1,45 @@
+
 package LudoGame.source;
+
+
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+    import javafx.scene.Scene;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
- 
-public class GUI extends Application {
+     
+    public class GUI extends Application {
+        
+		
+		
+        @Override
+	public void start(Stage primaryStage) {
+		try {
+			URL fxmlURL = getClass().getResource("../fxml/GameBoard.fxml");
+			FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL);
+			Node root = fxmlLoader.load();
+
+			Scene scene = new Scene((StackPane) root, 620, 521
+			);
+			primaryStage.setScene(scene);
+			primaryStage.setTitle("Claiwatin");
+			primaryStage.centerOnScreen();
+			primaryStage.show();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+        
     public static void main(String[] args) {
-        launch(args);
+       launch(args);
     }
     
-    @Override
-    public void start(Stage primaryStage) {
-        primaryStage.setTitle("Hello World!");
-        Button btn = new Button();
-        btn.setText("Say 'Hello World'");
-        btn.setOnAction(new EventHandler<ActionEvent>() {
- 
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Hello World!");
-            }
-        });
-        
-        StackPane root = new StackPane();
-        root.getChildren().add(btn);
-        primaryStage.setScene(new Scene(root, 300, 250));
-        primaryStage.show();
+	
     }
-}
