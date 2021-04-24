@@ -1,44 +1,85 @@
 package LudoGame.controller;
 
 import java.io.File;
+import java.net.URL;
 import java.util.Random;
+import java.util.ResourceBundle;
 
-
+import LudoGame.source.*;
+import LudoGame.source.SquareArray;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 
-public class GameBoardController {
+public class GameBoardController extends SquareArray implements Initializable{
 
-
-    @FXML
-    private Button G1;
 
     @FXML
-    private Button G2;
+    private Button G1, G2, G3, G4;
+    @FXML
+    private Button B1, B2, B3, B4;
+    @FXML
+    private Button R1, R2, R3, R4;
+    @FXML
+    private Button Y1, Y2, Y3, Y4;
 
     @FXML
-    private Button G3;
+    private Label playerTurn;
 
-    @FXML
-    private Button G4;
+    private String turn = new String("G");
+    private int dice;
 
-    @FXML
-    private Button B1;
+    private Player player1=new Player();
+    private Player player2=new Player();
+    private Player player3=new Player();
+    private Player player4=new Player();
 
-    @FXML
-    private Button B2;
+    @Override
+    public void initialize(URL location, ResourceBundle resources){
+        Square[] squareArray = new Square[57];
+        squareArray=initSquares();
+        
+        player1.initPlayers(player1,1,squareArray);
+        player2.initPlayers(player2,2,squareArray);
+        player3.initPlayers(player3,3,squareArray);
+        player4.initPlayers(player4,4,squareArray);
 
-    @FXML
-    private Button B3;
+        Random random = new Random();
+        int start;
+        start = 1+random.nextInt(4);
 
-    @FXML
-    private Button B4;
-
-    String turn = new String("G");
+        switch (start) {
+            case 1:
+                turn = "G";
+                playerTurn.setStyle("-fx-background-color: #a7ec1c");
+                playerTurn.setText("G");
+                break;
+            case 2:
+                turn = "R";
+                playerTurn.setStyle("-fx-background-color: #cc0000");
+                playerTurn.setText("R");
+                break;
+            case 3:
+                turn = "B";
+                playerTurn.setStyle("-fx-background-color: #7827bb");
+                playerTurn.setText("V");
+                break;
+            case 4:
+                turn = "Y";
+                playerTurn.setStyle("-fx-background-color: #eaf517");
+                playerTurn.setText("Y");
+                break;
+            default:
+                break;
+        }
+    }
     
     @FXML
     void MovePiece(ActionEvent event) {
@@ -47,11 +88,37 @@ public class GameBoardController {
             G2.setDisable(true);
             G3.setDisable(true);
             G4.setDisable(true);
-        }else{
+            G4.toBack();
+            G3.toBack();
+            G2.toBack();
+            G4.toBack();
+        }else if(this.turn.equals("B")){
             B1.setDisable(true);
             B2.setDisable(true);
             B3.setDisable(true);
             B4.setDisable(true);
+            B4.toBack();
+            B3.toBack();
+            B2.toBack();
+            B4.toBack();
+        }else if(this.turn.equals("R")){
+            R1.setDisable(true);
+            R2.setDisable(true);
+            R3.setDisable(true);
+            R4.setDisable(true);
+            R4.toBack();
+            R3.toBack();
+            R2.toBack();
+            R4.toBack();
+        }else if(this.turn.equals("Y")){
+            Y1.setDisable(true);
+            Y2.setDisable(true);
+            Y3.setDisable(true);
+            Y4.setDisable(true);
+            Y4.toBack();
+            Y3.toBack();
+            Y2.toBack();
+            Y4.toBack();
         }
 
         String piece = new String(event.toString().split("'")[1]);
@@ -111,11 +178,7 @@ public class GameBoardController {
                 break;
         }
 
-        if(this.turn.equals("G")){
-            this.turn = "B";   
-        }else{
-            this.turn = "G";
-        }
+        nextPlayer();
         DiceButton.setDisable(false);
     }
 
@@ -125,13 +188,17 @@ public class GameBoardController {
     private ImageView diceView;
 
     @FXML
-    int throwDice(ActionEvent event) {
+    void throwDice(ActionEvent event) {
+        int exit=0;
         Random random = new Random();
-        int dice;
-        dice = 1+random.nextInt(6);
+        this.dice = 1+random.nextInt(6);
         String url = new File( "" ).getAbsolutePath();
         
-        switch (dice) {
+        for(int i=1;i<7;i++){
+           /*essay D'animation*/
+            diceView.setImage(new Image("file:"+url+"/LudoGame/files/De"+i+".png"));
+        }
+        switch (this.dice) {
             case 1:
                 diceView.setImage(new Image("file:"+url+"/LudoGame/files/De1.png"));
                 break;
@@ -155,27 +222,60 @@ public class GameBoardController {
         }
         DiceButton.setDisable(true);
         if(this.turn.equals("B")){
-            B1.setDisable(false);
-            B2.setDisable(false);
-            B3.setDisable(false);
-            B4.setDisable(false);
-            G4.toBack();
-            G3.toBack();
-            G2.toBack();
-            G4.toBack();
-            
-        }else{
-            G1.setDisable(false);
-            G2.setDisable(false);
-            G3.setDisable(false);
-            G4.setDisable(false);
-            B4.toBack();
-            B3.toBack();
-            B2.toBack();
-            B1.toBack();
-            
+            exit+=enable(B1);
+            exit+=enable(B2);
+            exit+=enable(B3);
+            exit+=enable(B4);
+        }else if(this.turn.equals("G")){
+            exit+=enable(G1);
+            exit+=enable(G2);
+            exit+=enable(G3);
+            exit+=enable(G4);
+        }else if(this.turn.equals("R")){
+            exit+=enable(R1);
+            exit+=enable(R2);
+            exit+=enable(R3);
+            exit+=enable(R4);
+        }else if(this.turn.equals("Y")){
+            exit+=enable(Y1);
+            exit+=enable(Y2);
+            exit+=enable(Y3);
+            exit+=enable(Y4);
         }
-        return dice;
+
+        if(exit==4){
+            DiceButton.setDisable(false);
+            nextPlayer();
+        }
+    }
+
+    public int enable(Button btn){
+        if(dice == 6){
+            btn.setDisable(false);
+            return 0;
+        }else{
+            return 1;
+        }
+    }
+
+    public void nextPlayer(){
+        if(this.turn.equals("G")){
+            this.turn = "R";
+            playerTurn.setStyle("-fx-background-color: #cc0000");
+            playerTurn.setText("R");   
+        }else if(this.turn.equals("R")){
+            this.turn = "B";
+            playerTurn.setStyle("-fx-background-color: #7827bb");
+            playerTurn.setText("V");
+        }else if(this.turn.equals("B")){
+            this.turn = "Y";
+            playerTurn.setStyle("-fx-background-color: #eaf517");
+            playerTurn.setText("Y");
+        }else if(this.turn.equals("Y")){
+            this.turn = "G";
+            playerTurn.setStyle("-fx-background-color: #a7ec1c");
+            playerTurn.setText("G");
+        }
     }
 
 }

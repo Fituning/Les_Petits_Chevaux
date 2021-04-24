@@ -8,9 +8,9 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<StackPane maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="521.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LudoGame.controller.GameBoardController">
+<StackPane maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="619.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LudoGame.controller.GameBoardController">
    <children>
-      <ImageView fitHeight="520.0" fitWidth="630.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
+      <ImageView fitHeight="520.0" fitWidth="630.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="TOP_CENTER">
          <image>
             <Image url="@../files/Sans%20titre.png" />
          </image>
@@ -182,10 +182,155 @@
                   <Insets bottom="-8.0" left="-8.0" right="-8.0" top="-8.0" />
                </padding>
             </Button>
+            <Button fx:id="Y1" alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="174.0" layoutY="429.0" mnemonicParsing="false" onAction="#MovePiece" prefHeight="48.0" prefWidth="78.0" style="-fx-background-color: transparent; -fx-text-fill: transparent; -fx-border-color: transparent;" text="Y1" textAlignment="CENTER" GridPane.columnIndex="10" GridPane.rowIndex="10">
+               <cursor>
+                  <Cursor fx:constant="DISAPPEAR" />
+               </cursor>
+               <graphic>
+                  <ImageView id="PieceG1" fx:id="PieceG141111" fitHeight="36.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../files/piece1Y.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets bottom="-8.0" left="-8.0" right="-8.0" top="-8.0" />
+               </padding>
+            </Button>
+            <Button fx:id="Y2" alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="174.0" layoutY="429.0" mnemonicParsing="false" onAction="#MovePiece" prefHeight="48.0" prefWidth="78.0" style="-fx-background-color: transparent; -fx-text-fill: transparent; -fx-border-color: transparent;" text="Y2" textAlignment="CENTER" GridPane.columnIndex="12" GridPane.rowIndex="10">
+               <cursor>
+                  <Cursor fx:constant="DISAPPEAR" />
+               </cursor>
+               <graphic>
+                  <ImageView id="PieceG1" fx:id="PieceG141112" fitHeight="36.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../files/piece2Y.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets bottom="-8.0" left="-8.0" right="-8.0" top="-8.0" />
+               </padding>
+            </Button>
+            <Button fx:id="Y3" alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="174.0" layoutY="429.0" mnemonicParsing="false" onAction="#MovePiece" prefHeight="48.0" prefWidth="78.0" style="-fx-background-color: transparent; -fx-text-fill: transparent; -fx-border-color: transparent;" text="Y3" textAlignment="CENTER" GridPane.columnIndex="10" GridPane.rowIndex="12">
+               <cursor>
+                  <Cursor fx:constant="DISAPPEAR" />
+               </cursor>
+               <graphic>
+                  <ImageView id="PieceG1" fx:id="PieceG141113" fitHeight="36.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../files/piece3Y.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets bottom="-8.0" left="-8.0" right="-8.0" top="-8.0" />
+               </padding>
+            </Button>
+            <Button fx:id="Y4" alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="174.0" layoutY="429.0" mnemonicParsing="false" onAction="#MovePiece" prefHeight="48.0" prefWidth="78.0" style="-fx-background-color: transparent; -fx-text-fill: transparent; -fx-border-color: transparent;" text="Y4" textAlignment="CENTER" GridPane.columnIndex="12" GridPane.rowIndex="12">
+               <cursor>
+                  <Cursor fx:constant="DISAPPEAR" />
+               </cursor>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets bottom="-8.0" left="-8.0" right="-8.0" top="-8.0" />
+               </padding>
+               <graphic>
+                  <ImageView id="PieceG1" fx:id="PieceG141114" fitHeight="36.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../files/piece4Y.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="R1" alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="504.0" layoutY="429.0" mnemonicParsing="false" onAction="#MovePiece" prefHeight="48.0" prefWidth="78.0" style="-fx-background-color: transparent; -fx-text-fill: transparent; -fx-border-color: transparent;" text="R1" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <cursor>
+                  <Cursor fx:constant="DISAPPEAR" />
+               </cursor>
+               <graphic>
+                  <ImageView id="PieceG1" fx:id="PieceG1411141" fitHeight="36.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../files/piece1R.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets bottom="-8.0" left="-8.0" right="-8.0" top="-8.0" />
+               </padding>
+            </Button>
+            <Button fx:id="R2" alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="504.0" layoutY="429.0" mnemonicParsing="false" onAction="#MovePiece" prefHeight="48.0" prefWidth="78.0" style="-fx-background-color: transparent; -fx-text-fill: transparent; -fx-border-color: transparent;" text="R2" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="2">
+               <cursor>
+                  <Cursor fx:constant="DISAPPEAR" />
+               </cursor>
+               <graphic>
+                  <ImageView id="PieceG1" fx:id="PieceG1411142" fitHeight="36.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../files/piece2R.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets bottom="-8.0" left="-8.0" right="-8.0" top="-8.0" />
+               </padding>
+            </Button>
+            <Button fx:id="R3" alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="504.0" layoutY="429.0" mnemonicParsing="false" onAction="#MovePiece" prefHeight="48.0" prefWidth="78.0" style="-fx-background-color: transparent; -fx-text-fill: transparent; -fx-border-color: transparent;" text="R3" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="4">
+               <cursor>
+                  <Cursor fx:constant="DISAPPEAR" />
+               </cursor>
+               <graphic>
+                  <ImageView id="PieceG1" fx:id="PieceG1411143" fitHeight="36.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../files/piece3R.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets bottom="-8.0" left="-8.0" right="-8.0" top="-8.0" />
+               </padding>
+            </Button>
+            <Button fx:id="R4" alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="504.0" layoutY="429.0" mnemonicParsing="false" onAction="#MovePiece" prefHeight="48.0" prefWidth="78.0" style="-fx-background-color: transparent; -fx-text-fill: transparent; -fx-border-color: transparent;" text="R4" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="4">
+               <cursor>
+                  <Cursor fx:constant="DISAPPEAR" />
+               </cursor>
+               <graphic>
+                  <ImageView id="PieceG1" fx:id="PieceG1411144" fitHeight="36.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../files/piece3R.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets bottom="-8.0" left="-8.0" right="-8.0" top="-8.0" />
+               </padding>
+            </Button>
          </children>
          <effect>
             <Glow />
          </effect>
       </GridPane>
+      <Label fx:id="playerTurn" alignment="CENTER" minHeight="-Infinity" prefHeight="36.0" prefWidth="42.0" style="-fx-background-color: white; -fx-border-color: black;" text="R" />
    </children>
 </StackPane>

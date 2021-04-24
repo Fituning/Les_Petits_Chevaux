@@ -11,13 +11,13 @@ public class Player {
 
     /* definition of the construct method*/ 
 
-    Player(String pseudo, Color teamColor){
+    public Player(String pseudo, Color teamColor){
         this.pseudo = pseudo;
         this.team = new Team(teamColor);
     }
 
     /* definition of the default construct method*/
-    Player(){
+    public Player(){
         this.pseudo = "john";
         this.team =new Team(Color.BLACK); 
     }

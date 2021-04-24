@@ -10,7 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
      
-    public class GUI extends Application {
+    public class GUI extends Application{ 
         
 		
 		
@@ -34,8 +34,8 @@ import javafx.stage.Stage;
 	}
         
     public static void main(String[] args) {
-		
-       launch(args);
+
+    	launch(args);
     }
     
 	
