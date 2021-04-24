@@ -1,6 +1,8 @@
 package LudoGame.controller;
 
+import java.io.File;
 import java.util.Random;
+
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -34,36 +36,36 @@ public class GameBoardController {
     private ImageView diceView;
 
     @FXML
-    void throwDice(ActionEvent event) {
-        System.out.println(diceView.getImage().getUrl());
+    int throwDice(ActionEvent event) {
         Random random = new Random();
         int dice;
         dice = 1+random.nextInt(6);
+        String url = new File( "" ).getAbsolutePath();
         
         switch (dice) {
             case 1:
-                
-                diceView.setImage(new Image("file:@../files/De1.png"));
+                diceView.setImage(new Image("file:"+url+"/LudoGame/files/De1.png"));
                 break;
             case 2:
-                diceView.setImage(new Image("file:../LudoGame/files/De2.png"));
+                diceView.setImage(new Image("file:"+url+"/LudoGame/files/De2.png"));
                 break;
             case 3:
-                diceView.setImage(new Image("file:../LudoGame/files/De3.png"));
+                diceView.setImage(new Image("file:"+url+"/LudoGame/files/De3.png"));
                 break;
             case 4:
-                diceView.setImage(new Image("file:../LudoGame/files/De4.png"));
+                diceView.setImage(new Image("file:"+url+"/LudoGame/files/De4.png"));
                 break;
             case 5:
-                diceView.setImage(new Image("file:../LudoGame/files/De5.png"));
+                diceView.setImage(new Image("file:"+url+"/LudoGame/files/De5.png"));
                 break;
             case 6:
-                diceView.setImage(new Image("file:../LudoGame/files/De6.png"));
+                diceView.setImage(new Image("file:"+url+"/LudoGame/files/De6.png"));
                 break;
             default:
                 break;
         }
-        System.out.println("do");
+        System.out.println(dice);
+        return dice;
     }
 
 }
