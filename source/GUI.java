@@ -2,18 +2,11 @@
 package LudoGame.source;
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> e1497660a1dd488edcc857528f2bdce6bed42e09
+import java.net.URL;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-    import javafx.scene.Scene;
-import javafx.scene.image.ImageView;
+import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
      
