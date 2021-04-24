@@ -2,7 +2,10 @@
 package LudoGame.source;
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> e1497660a1dd488edcc857528f2bdce6bed42e09
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
