@@ -37,15 +37,54 @@ public class GameBoardController {
 
     @FXML
     private Button B4;
+
+    String turn = new String("G");
     
     @FXML
     void MovePiece(ActionEvent event) {
+        if(this.turn.equals("G")){
+            System.out.println(turn);
+            G1.setDisable(true);
+            G2.setDisable(true);
+            G3.setDisable(true);
+            G4.setDisable(true);
+        }else{
+            B1.setDisable(true);
+            B2.setDisable(true);
+            B3.setDisable(true);
+            B4.setDisable(true);
+        }
+
         int x,y;
         System.out.println(event.getSource().toString());
         x = GridPane.getColumnIndex(G1);
         y = GridPane.getRowIndex(G1);
         y++;
         GridPane.setConstraints(G1, x, y);
+
+        if(this.turn.equals("G")){
+            this.turn = "B";
+            B1.setDisable(false);
+            B2.setDisable(false);
+            B3.setDisable(false);
+            B4.setDisable(false);
+            G4.toBack();
+            G3.toBack();
+            G2.toBack();
+            G4.toBack();
+            
+        }else{
+            this.turn = "G";
+            G1.setDisable(false);
+            G2.setDisable(false);
+            G3.setDisable(false);
+            G4.setDisable(false);
+            B4.toBack();
+            B3.toBack();
+            B2.toBack();
+            B1.toBack();
+            
+        }
     }
 
     @FXML
