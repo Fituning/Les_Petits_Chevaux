@@ -78,6 +78,9 @@ public class Square {
 	public String getSquareNumber() {
 		return squareNumber;
 		}
+	public Position getSquarePosition(){
+		return squarePosition;
+	}
 
 
 	public void setSquareNumber(String squareNumber) {
