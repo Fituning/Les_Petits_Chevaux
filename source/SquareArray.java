@@ -1,4 +1,6 @@
-package Les_Petits_Chevaux.source;
+
+package LudoGame.source;
+
 
 import java.awt.*;
 

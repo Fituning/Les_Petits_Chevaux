@@ -1,4 +1,6 @@
-package  Les_Petits_Chevaux.source;
+
+package LudoGame.source;
+
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;

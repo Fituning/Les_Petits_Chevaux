@@ -1,4 +1,5 @@
-package  Les_Petits_Chevaux.source;
+
+package LudoGame.source;
 
 public class Position {
     private int x;
