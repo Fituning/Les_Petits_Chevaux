@@ -13,21 +13,39 @@ import javafx.scene.layout.GridPane;
 
 public class GameBoardController {
 
-    @FXML
-    private ImageView PieceG1;
 
     @FXML
-    private Button btnG1;
+    private Button G1;
+
+    @FXML
+    private Button G2;
+
+    @FXML
+    private Button G3;
+
+    @FXML
+    private Button G4;
+
+    @FXML
+    private Button B1;
+
+    @FXML
+    private Button B2;
+
+    @FXML
+    private Button B3;
+
+    @FXML
+    private Button B4;
     
     @FXML
     void MovePiece(ActionEvent event) {
         int x,y;
         System.out.println(event.getSource().toString());
-        x = GridPane.getColumnIndex(btnG1);
-        y = GridPane.getRowIndex(btnG1);
+        x = GridPane.getColumnIndex(G1);
+        y = GridPane.getRowIndex(G1);
         y++;
-        GridPane.setConstraints(btnG1, x, y);
-        GridPane.setConstraints(PieceG1, x, y);
+        GridPane.setConstraints(G1, x, y);
     }
 
     @FXML
