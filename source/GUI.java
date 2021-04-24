@@ -24,7 +24,7 @@ import javafx.stage.Stage;
 			Scene scene = new Scene((StackPane) root, 620, 521
 			);
 			primaryStage.setScene(scene);
-			primaryStage.setTitle("Claiwatin");
+			primaryStage.setTitle("LudoGame");
 			primaryStage.centerOnScreen();
 			primaryStage.show();
 
@@ -34,6 +34,7 @@ import javafx.stage.Stage;
 	}
         
     public static void main(String[] args) {
+		
        launch(args);
     }
     

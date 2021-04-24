@@ -43,7 +43,6 @@ public class GameBoardController {
     @FXML
     void MovePiece(ActionEvent event) {
         if(this.turn.equals("G")){
-            System.out.println(turn);
             G1.setDisable(true);
             G2.setDisable(true);
             G3.setDisable(true);
@@ -55,36 +54,69 @@ public class GameBoardController {
             B4.setDisable(true);
         }
 
+        String piece = new String(event.toString().split("'")[1]);
         int x,y;
-        System.out.println(event.getSource().toString());
-        x = GridPane.getColumnIndex(G1);
-        y = GridPane.getRowIndex(G1);
-        y++;
-        GridPane.setConstraints(G1, x, y);
+        System.out.println(piece);
+        switch (piece) {
+            case "G1":
+                x = GridPane.getColumnIndex(G1);
+                y = GridPane.getRowIndex(G1);
+                y++;
+                GridPane.setConstraints(G1, x, y);
+                break;
+            case "G2":
+            x = GridPane.getColumnIndex(G2);
+            y = GridPane.getRowIndex(G2);
+            y++;
+            GridPane.setConstraints(G2, x, y);
+                break;
+            case "G3":
+            x = GridPane.getColumnIndex(G3);
+            y = GridPane.getRowIndex(G3);
+            y++;
+            GridPane.setConstraints(G3, x, y);
+                break;
+            case "G4":
+            x = GridPane.getColumnIndex(G4);
+            y = GridPane.getRowIndex(G4);
+            y++;
+            GridPane.setConstraints(G4, x, y);
+                break;
+            case "B1":
+            x = GridPane.getColumnIndex(B1);
+            y = GridPane.getRowIndex(B1);
+            y++;
+            GridPane.setConstraints(B1, x, y);
+                break;
+            case "B2":
+            x = GridPane.getColumnIndex(B2);
+            y = GridPane.getRowIndex(B2);
+            y++;
+            GridPane.setConstraints(B2, x, y);
+                break;
+            case "B3":
+            x = GridPane.getColumnIndex(B3);
+            y = GridPane.getRowIndex(B3);
+            y++;
+            GridPane.setConstraints(B3, x, y);
+                break;
+            case "B4":
+            x = GridPane.getColumnIndex(B4);
+            y = GridPane.getRowIndex(B4);
+            y++;
+            GridPane.setConstraints(B4, x, y);
+                break;
+        
+            default:
+                break;
+        }
 
         if(this.turn.equals("G")){
-            this.turn = "B";
-            B1.setDisable(false);
-            B2.setDisable(false);
-            B3.setDisable(false);
-            B4.setDisable(false);
-            G4.toBack();
-            G3.toBack();
-            G2.toBack();
-            G4.toBack();
-            
+            this.turn = "B";   
         }else{
             this.turn = "G";
-            G1.setDisable(false);
-            G2.setDisable(false);
-            G3.setDisable(false);
-            G4.setDisable(false);
-            B4.toBack();
-            B3.toBack();
-            B2.toBack();
-            B1.toBack();
-            
         }
+        DiceButton.setDisable(false);
     }
 
     @FXML
@@ -121,7 +153,28 @@ public class GameBoardController {
             default:
                 break;
         }
-        System.out.println(dice);
+        DiceButton.setDisable(true);
+        if(this.turn.equals("B")){
+            B1.setDisable(false);
+            B2.setDisable(false);
+            B3.setDisable(false);
+            B4.setDisable(false);
+            G4.toBack();
+            G3.toBack();
+            G2.toBack();
+            G4.toBack();
+            
+        }else{
+            G1.setDisable(false);
+            G2.setDisable(false);
+            G3.setDisable(false);
+            G4.setDisable(false);
+            B4.toBack();
+            B3.toBack();
+            B2.toBack();
+            B1.toBack();
+            
+        }
         return dice;
     }
 
