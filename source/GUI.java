@@ -1,4 +1,4 @@
-package source;
+package  Les_Petits_Chevaux.source;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;

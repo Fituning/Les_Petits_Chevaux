@@ -1,4 +1,4 @@
-package source;
+package  Les_Petits_Chevaux.source;
 
 public class Position {
     private int x;
