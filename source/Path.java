@@ -41,7 +41,7 @@ public class Path extends SquareArray {
 
 
 //does not work for the end game
-    public void refreshPawn(Piece p1, int dice){
+    public Position refreshPawn(Piece p1, int dice){
     
         this.squareArray[p1.getPiecePath().getPathPosition()].removePieceIn(p1);
        
@@ -54,6 +54,10 @@ public class Path extends SquareArray {
         this.squareArray[p1.getPiecePath().getPathPosition()].comparePiecePosition(p1,this.squareArray);
 
         System.out.print("position final :"+ p1.getPieceSquare(p1.getPiecePath().getPathPosition()).getSquareNumber()+"\n");
+       // System.out.print("coordonée X:"+this.squareArray[p1.getPiecePath().getPathPosition()].getSquarePosition().getX()+"\n");
+        //System.out.print("coordonée Y:"+this.squareArray[p1.getPiecePath().getPathPosition()].getSquarePosition().getY()+"\n");
+        return  this.squareArray[p1.getPiecePath().getPathPosition()].getSquarePosition();
+        
     }
 
 
