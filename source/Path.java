@@ -4,9 +4,6 @@ package LudoGame.source;
 
 import java.awt.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
 
 public class Path extends SquareArray {
     private Square[] squareArray = new Square[57];
@@ -49,9 +46,7 @@ public class Path extends SquareArray {
         this.squareArray[p1.getPiecePath().getPathPosition()].removePieceIn(p1);
        
        String test=p1.getPieceSquare(p1.getPiecePath().getPathPosition()+dice).getSquareNumber();
-       int pos=Integer.parseInt(test);
-        
-        p1.getPiecePath().setPathPosition(p1.getPiecePath().getPathPosition()+dice);
+       p1.getPiecePath().setPathPosition(p1.getPiecePath().getPathPosition()+dice);
         this.squareArray[p1.getPiecePath().getPathPosition()].addPieceIn(p1);
 
         this.squareArray[p1.getPiecePath().getPathPosition()].comparePiecePosition(p1,this.squareArray);

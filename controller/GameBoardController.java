@@ -2,6 +2,8 @@ package LudoGame.controller;
 
 import java.io.File;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.ResourceBundle;
 
@@ -14,9 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Background;
 import javafx.scene.layout.GridPane;
-import javafx.scene.paint.Color;
 
 public class GameBoardController extends SquareArray implements Initializable{
 
@@ -50,10 +50,15 @@ public class GameBoardController extends SquareArray implements Initializable{
         playerB.initPlayers(playerB,2,squareArray);
         playerG.initPlayers(playerG,3,squareArray);
         playerY.initPlayers(playerY,4,squareArray);
-
+        
+        /*
         playerG.getTeam().setPoints(4);
         playerY.getTeam().setPoints(4);
         playerR.getTeam().setPoints(4);
+        */
+
+        Button btnArray[] ={R1,R2,R3,R4,B1,B2,B3,B4,G1,G2,G3,G4,Y1,Y2,Y3,Y4};
+        initStartPosition(btnArray);
 
         Random random = new Random();
         int start;
@@ -85,10 +90,19 @@ public class GameBoardController extends SquareArray implements Initializable{
         }
     }
     
+    public void initStartPosition(Button[] buttonArray){
+        int x,y;
+        for(int i=0 ;i<16;i++){
+            x = GridPane.getColumnIndex(buttonArray[i]);
+            y = GridPane.getRowIndex(buttonArray[i]);
+            witchPiece(buttonArray[i]).setInitPosition(x, y);
+        }
+    }
+
     @FXML
     void MovePiece(ActionEvent event) {
         
-
+        List<Piece> pieceIn = new ArrayList<Piece>();
         String piece = new String(event.toString().split("'")[1]);
         int x,y;
         System.out.println(piece);
@@ -97,7 +111,9 @@ public class GameBoardController extends SquareArray implements Initializable{
             x = witchPiece(getButton(piece)).getPiecePath().getSquare().getSquarePosition().getX();
             y = witchPiece(getButton(piece)).getPiecePath().getSquare().getSquarePosition().getY();
             GridPane.setConstraints(getButton(piece), x, y);
+            witchPiece(getButton(piece)).getPiecePath().getSquare().addPieceIn(witchPiece(getButton(piece)));
         }else{
+            witchPiece(getButton(piece)).getPiecePath().getSquare().removePieceIn(witchPiece(getButton(piece)));
             witchPiece(getButton(piece)).setCurrentPosition(dice);
             x = witchPiece(getButton(piece)).getPiecePath().getSquare().getSquarePosition().getX();
             y = witchPiece(getButton(piece)).getPiecePath().getSquare().getSquarePosition().getY();
@@ -106,6 +122,25 @@ public class GameBoardController extends SquareArray implements Initializable{
             System.out.println(x+","+y);*/
             GridPane.setConstraints(getButton(piece), x, y);
             witchPiece(getButton(piece)).isPathCompleted();
+            
+
+            if(witchPiece(getButton(piece)).getPiecePath().getSquare().isSafeZone()==false){
+                pieceIn = witchPiece(getButton(piece)).getPiecePath().getSquare().getPieceIn();
+                if(pieceIn.size() >0){
+                    System.out.println("there is a Piece in there");
+                    for(Piece n : pieceIn){
+                        if(n.getColorName().equals(this.turn)== false){
+                            x = n.getInitPosition().getX();
+                            y = n.getInitPosition().getY();
+                            n.setPiecePosition(0);
+                            n.getPiecePath().setInPist(false);
+                            GridPane.setConstraints(witchButton(n), x, y);
+                        }
+                    }
+                }
+            }
+
+            witchPiece(getButton(piece)).getPiecePath().getSquare().addPieceIn(witchPiece(getButton(piece)));
         }
         
         if(this.turn.equals("G")){
@@ -291,12 +326,50 @@ public class GameBoardController extends SquareArray implements Initializable{
         }
     }
 
+    public Button witchButton(Piece p){
+        if(p.equals(playerB.getTeam().getPieces(1))){
+            return B1;
+        }else if(p.equals(playerB.getTeam().getPieces(2))){
+            return B2;
+        }else if(p.equals(playerB.getTeam().getPieces(3))){
+            return B3;
+        }else if(p.equals(playerB.getTeam().getPieces(4))){
+            return B4;
+        }else if(p.equals(playerR.getTeam().getPieces(1))){
+            return R1;
+        }else if(p.equals(playerR.getTeam().getPieces(2))){
+            return R2;
+        }else if(p.equals(playerR.getTeam().getPieces(3))){
+            return R3;
+        }else if(p.equals(playerR.getTeam().getPieces(4))){
+            return R4;
+        }else if(p.equals(playerG.getTeam().getPieces(1))){
+            return G1;
+        }else if(p.equals(playerG.getTeam().getPieces(2))){
+            return G2;
+        }else if(p.equals(playerG.getTeam().getPieces(3))){
+            return G3;
+        }else if(p.equals(playerG.getTeam().getPieces(4))){
+            return G4;
+        }else if(p.equals(playerY.getTeam().getPieces(1))){
+            return Y1;
+        }else if(p.equals(playerY.getTeam().getPieces(2))){
+            return Y2;
+        }else if(p.equals(playerY.getTeam().getPieces(3))){
+            return Y3;
+        }else if(p.equals(playerY.getTeam().getPieces(4))){
+            return Y4;
+        }else{
+            return null;
+        }
+    }
+
     public Button getButton(String btnName){
         switch (btnName){
             case "G1":
                 return G1;
             case "G2":
-                return G3;
+                return G2;
             case "G3":
                 return G3;
             case "G4":

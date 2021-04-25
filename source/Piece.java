@@ -3,8 +3,6 @@ package LudoGame.source;
 
 import java.awt.Color;
 
-import javafx.css.Size;
-
 
 
 public class Piece {
@@ -13,7 +11,15 @@ public class Piece {
     private Path piecePath;
     private boolean pathCompleted;
     private int currentPosition;
+    private Position initialPosition;
 
+public void setInitPosition(int x, int y){
+    this.initialPosition = new Position(x, y);
+}
+
+public Position getInitPosition(){
+    return this.initialPosition;
+}
 
 Piece(Color color,Square[] squareArray){
         this.color=color;
@@ -66,6 +72,20 @@ public void outside(Piece p1,int di){
 
     public Color getColor() {
         return this.color;
+    }
+
+    public String getColorName(){
+        if(this.color.equals(Color.RED)){
+            return "R";
+        }else if(this.color.equals(Color.BLUE)){
+            return "B";
+        }else if(this.color.equals(Color.GREEN)){
+            return "G";
+        }else if(this.color.equals(Color.YELLOW)){
+            return "Y";
+        }else{
+            return null;
+        }
     }
 
     public void setColor(Color color) {
