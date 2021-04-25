@@ -105,7 +105,7 @@ public class GameBoardController extends SquareArray implements Initializable{
         List<Piece> pieceIn = new ArrayList<Piece>();
         String piece = new String(event.toString().split("'")[1]);
         int x,y;
-        System.out.println(piece);
+
         if(witchPiece(getButton(piece)).getPiecePath().isInPist()==false){
             witchPiece(getButton(piece)).getPiecePath().setInPist(true);
             x = witchPiece(getButton(piece)).getPiecePath().getSquare().getSquarePosition().getX();
@@ -117,9 +117,6 @@ public class GameBoardController extends SquareArray implements Initializable{
             witchPiece(getButton(piece)).setCurrentPosition(dice);
             x = witchPiece(getButton(piece)).getPiecePath().getSquare().getSquarePosition().getX();
             y = witchPiece(getButton(piece)).getPiecePath().getSquare().getSquarePosition().getY();
-            /*System.out.println(witchPiece(getButton(piece)).getcurrentPosition());
-            System.out.println(witchPiece(getButton(piece)).getPiecePath().getPathPosition());
-            System.out.println(x+","+y);*/
             GridPane.setConstraints(getButton(piece), x, y);
             witchPiece(getButton(piece)).isPathCompleted();
             
@@ -127,7 +124,6 @@ public class GameBoardController extends SquareArray implements Initializable{
             if(witchPiece(getButton(piece)).getPiecePath().getSquare().isSafeZone()==false){
                 pieceIn = witchPiece(getButton(piece)).getPiecePath().getSquare().getPieceIn();
                 if(pieceIn.size() >0){
-                    System.out.println("there is a Piece in there");
                     for(Piece n : pieceIn){
                         if(n.getColorName().equals(this.turn)== false){
                             x = n.getInitPosition().getX();

@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 //test commit 
 public class Main extends SquareArray{
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
 //trying to implement the game loop
 //player initialisation (not sure if it is the best way)
 /*Random random = new Random();
@@ -88,10 +88,7 @@ while(player1.getTeam().win(player1)==false || player2.getTeam().win(player2)==f
                 player4.getTeam().piecesArray[0].getPiecePath().setInPist(true);
             }
         }
-
-
-//...
-}*/
+}
         /**** Zone debug sale de Carlo *****/
 
         Square[] squareArray2 = new Square[52];
@@ -254,14 +251,3 @@ PieceG2.getPiecePath().refreshPawn(PieceG2,nb);*/
 
     
 }
-
-
-
-
-
-
-
-
-
-
-

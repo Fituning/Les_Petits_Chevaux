@@ -2,7 +2,7 @@
 package LudoGame.source;
 
 import java.awt.*;
-import java.util.Scanner;
+/*import java.util.Scanner;*/
 
 public class Player {
     private String pseudo;
@@ -18,7 +18,7 @@ public class Player {
 
     /* definition of the default construct method*/
     public Player(){
-        this.pseudo = "john";
+        this.pseudo = "Gilou";
         this.team =new Team(Color.BLACK); 
     }
 
@@ -43,6 +43,7 @@ public class Player {
     }
 
     public void initPlayers(Player pl1,int nb, Square[] squareAr){
+        /*
         System.out.print("chose your nickname: ");
         String scra;
          Scanner sc = new Scanner( System.in ); 
@@ -50,7 +51,7 @@ public class Player {
              pl1.setPseudo(scra);
              System.out.print(pl1.getPseudo());
             //CHANGER AVEC L4AFFICHAGE GRAPHIQUE
-            
+        */
             
               switch(nb) {
                 case 1:
@@ -78,7 +79,7 @@ public class Player {
                 }
                 System.out.print(pl1.getPseudo());
                 System.out.print(pl1.getTeam().getTeamColor());
-                sc=null;
+                
             
             }
     }
