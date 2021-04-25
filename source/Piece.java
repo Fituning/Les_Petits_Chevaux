@@ -76,9 +76,6 @@ public void outside(Piece p1,int di){
         return this.piecePath;
     }
 
-    public boolean isPathCompleted() {
-        return this.pathCompleted;
-    }
 
     public boolean getPathCompleted() {
         return this.pathCompleted;
@@ -88,8 +85,8 @@ public void outside(Piece p1,int di){
         this.pathCompleted = pathCompleted;
     }
 
-    public boolean canBePlayed(Piece p1, int dice){
-        if(57-p1.getPiecePath().getPathPosition()>=dice){
+    public boolean canBePlayed( int dice){
+        if(56-this.getPiecePath().getPathPosition()>=dice){
             return true;
         }
         else{
@@ -97,9 +94,9 @@ public void outside(Piece p1,int di){
         }
     }
 
-    public boolean isPathCompleted(Piece p1){
-        if(57-p1.getPiecePath().getPathPosition()==0){
-            p1.setPathCompleted(true);
+    public boolean isPathCompleted(){
+        if(56-this.piecePath.getPathPosition()==0){
+            setPathCompleted(true);
             return true;
         }
         else{

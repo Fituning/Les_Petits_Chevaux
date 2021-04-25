@@ -51,6 +51,10 @@ public class GameBoardController extends SquareArray implements Initializable{
         playerG.initPlayers(playerG,3,squareArray);
         playerY.initPlayers(playerY,4,squareArray);
 
+        playerG.getTeam().setPoints(4);
+        playerY.getTeam().setPoints(4);
+        playerR.getTeam().setPoints(4);
+
         Random random = new Random();
         int start;
         start = 1+random.nextInt(4);
@@ -83,43 +87,7 @@ public class GameBoardController extends SquareArray implements Initializable{
     
     @FXML
     void MovePiece(ActionEvent event) {
-        if(this.turn.equals("G")){
-            G1.setDisable(true);
-            G2.setDisable(true);
-            G3.setDisable(true);
-            G4.setDisable(true);
-            G4.toBack();
-            G3.toBack();
-            G2.toBack();
-            G4.toBack();
-        }else if(this.turn.equals("B")){
-            B1.setDisable(true);
-            B2.setDisable(true);
-            B3.setDisable(true);
-            B4.setDisable(true);
-            B4.toBack();
-            B3.toBack();
-            B2.toBack();
-            B4.toBack();
-        }else if(this.turn.equals("R")){
-            R1.setDisable(true);
-            R2.setDisable(true);
-            R3.setDisable(true);
-            R4.setDisable(true);
-            R4.toBack();
-            R3.toBack();
-            R2.toBack();
-            R4.toBack();
-        }else if(this.turn.equals("Y")){
-            Y1.setDisable(true);
-            Y2.setDisable(true);
-            Y3.setDisable(true);
-            Y4.setDisable(true);
-            Y4.toBack();
-            Y3.toBack();
-            Y2.toBack();
-            Y4.toBack();
-        }
+        
 
         String piece = new String(event.toString().split("'")[1]);
         int x,y;
@@ -133,13 +101,28 @@ public class GameBoardController extends SquareArray implements Initializable{
             witchPiece(getButton(piece)).setCurrentPosition(dice);
             x = witchPiece(getButton(piece)).getPiecePath().getSquare().getSquarePosition().getX();
             y = witchPiece(getButton(piece)).getPiecePath().getSquare().getSquarePosition().getY();
-            System.out.println(witchPiece(getButton(piece)).getcurrentPosition());
+            /*System.out.println(witchPiece(getButton(piece)).getcurrentPosition());
             System.out.println(witchPiece(getButton(piece)).getPiecePath().getPathPosition());
-            System.out.println(x+","+y);
+            System.out.println(x+","+y);*/
             GridPane.setConstraints(getButton(piece), x, y);
+            witchPiece(getButton(piece)).isPathCompleted();
         }
         
-
+        if(this.turn.equals("G")){
+            disable(G1, G2, G3, G4);
+            playerG.getTeam().setWin();
+        }else if(this.turn.equals("B")){
+            disable(B1, B2, B3, B4);
+            playerB.getTeam().setWin();
+            System.out.println( playerB.getTeam().getPoints());
+        }else if(this.turn.equals("R")){
+            disable(R1, R2, R3, R4);
+            playerR.getTeam().setWin();
+        }else if(this.turn.equals("Y")){
+            disable(Y1, Y2, Y3, Y4);
+            playerY.getTeam().setWin();
+        }
+        
         nextPlayer();
         DiceButton.setDisable(false);
     }
@@ -155,7 +138,7 @@ public class GameBoardController extends SquareArray implements Initializable{
         Random random = new Random();
         this.dice = 1+random.nextInt(6);
         String url = new File( "" ).getAbsolutePath();
-        
+
         for(int i=1;i<7;i++){
            /*essay D'animation*/
             diceView.setImage(new Image("file:"+url+"/LudoGame/files/De"+i+".png"));
@@ -215,7 +198,7 @@ public class GameBoardController extends SquareArray implements Initializable{
         if(witchPiece(btn).getPiecePath().isInPist()==false && dice == 6){
             btn.setDisable(false);
             return 0;
-        }else if(witchPiece(btn).getPiecePath().isInPist()==true){
+        }else if(witchPiece(btn).getPiecePath().isInPist()==true && witchPiece(btn).canBePlayed( this.dice) == true){
             btn.setDisable(false);
             return 0;
         }else{
@@ -223,23 +206,50 @@ public class GameBoardController extends SquareArray implements Initializable{
         }
     }
 
+    public void disable(Button b1, Button b2, Button b3, Button b4){
+        b1.setDisable(true);
+        b2.setDisable(true);
+        b3.setDisable(true);
+        b4.setDisable(true);
+        b4.toBack();
+        b3.toBack();
+        b2.toBack();
+        b1.toBack();
+    }
+
     public void nextPlayer(){
         if(this.turn.equals("G")){
             this.turn = "R";
-            playerTurn.setStyle("-fx-background-color: #cc0000");
-            playerTurn.setText("R");   
+            if(playerR.getTeam().haveWin()){
+                nextPlayer();
+            }else{
+                playerTurn.setStyle("-fx-background-color: #cc0000");
+                playerTurn.setText("R");
+            } 
         }else if(this.turn.equals("R")){
             this.turn = "B";
-            playerTurn.setStyle("-fx-background-color: #7827bb");
-            playerTurn.setText("V");
+            if(playerB.getTeam().haveWin()){
+                nextPlayer();
+            }else{
+                playerTurn.setStyle("-fx-background-color: #7827bb");
+                playerTurn.setText("V");
+            }
         }else if(this.turn.equals("B")){
             this.turn = "Y";
-            playerTurn.setStyle("-fx-background-color: #eaf517");
-            playerTurn.setText("Y");
+            if(playerY.getTeam().haveWin()){
+                nextPlayer();
+            }else{
+                playerTurn.setStyle("-fx-background-color: #eaf517");
+                playerTurn.setText("Y");
+            }
         }else if(this.turn.equals("Y")){
             this.turn = "G";
-            playerTurn.setStyle("-fx-background-color: #a7ec1c");
-            playerTurn.setText("G");
+            if(playerG.getTeam().haveWin()){
+                nextPlayer();
+            }else{
+                playerTurn.setStyle("-fx-background-color: #a7ec1c");
+                playerTurn.setText("G");
+            }
         }
     }
 
@@ -295,7 +305,7 @@ public class GameBoardController extends SquareArray implements Initializable{
             case "B1":
                 return B1;
             case "B2":
-                return B3;
+                return B2;
             case "B3":
                 return B3;
             case "B4":
@@ -304,7 +314,7 @@ public class GameBoardController extends SquareArray implements Initializable{
             case "R1":
                 return R1;
             case "R2":
-                return R3;
+                return R2;
             case "R3":
                 return R3;
             case "R4":
@@ -313,7 +323,7 @@ public class GameBoardController extends SquareArray implements Initializable{
             case "Y1":
                 return Y1;
             case "Y2":
-                return Y3;
+                return Y2;
             case "Y3":
                 return Y3;
             case "Y4":

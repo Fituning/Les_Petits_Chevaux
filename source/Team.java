@@ -59,15 +59,17 @@ public class Team {
         return pieces;
     }
 
-
-    public boolean win(Player p1){
+    public void setWin(){
         int cmp=0;
         for(int i=0;i<4;i++){
-            if(p1.getTeam().piecesArray[i].isPathCompleted()){
+            if(this.piecesArray[i].isPathCompleted()){
                 cmp=cmp+1;
             }
         }
-        if(cmp==4){
+        this.points=cmp;
+    }
+    public boolean haveWin(){
+        if(this.points==4){
             return true;
         }
         else{
