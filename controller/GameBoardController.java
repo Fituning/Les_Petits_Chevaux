@@ -17,6 +17,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 
 public class GameBoardController extends SquareArray implements Initializable{
 
@@ -29,17 +30,22 @@ public class GameBoardController extends SquareArray implements Initializable{
     private Button R1, R2, R3, R4;
     @FXML
     private Button Y1, Y2, Y3, Y4;
+    @FXML
+    private ImageView winG, winB, winR, winY;
 
     @FXML
     private Label playerTurn;
 
     private String turn = new String("G");
     private int dice;
+    private boolean replay = false;
+    private int nbWinner=0;
 
     private Player playerR=new Player();
     private Player playerB=new Player();
     private Player playerG=new Player();
     private Player playerY=new Player();
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources){
@@ -50,12 +56,11 @@ public class GameBoardController extends SquareArray implements Initializable{
         playerB.initPlayers(playerB,2,squareArray);
         playerG.initPlayers(playerG,3,squareArray);
         playerY.initPlayers(playerY,4,squareArray);
-        
-        /*
-        playerG.getTeam().setPoints(4);
-        playerY.getTeam().setPoints(4);
-        playerR.getTeam().setPoints(4);
-        */
+
+        // playerB.getTeam().setPoints(4);
+        // playerG.getTeam().setPoints(4);
+        // playerY.getTeam().setPoints(4);
+
 
         Button btnArray[] ={R1,R2,R3,R4,B1,B2,B3,B4,G1,G2,G3,G4,Y1,Y2,Y3,Y4};
         initStartPosition(btnArray);
@@ -88,6 +93,13 @@ public class GameBoardController extends SquareArray implements Initializable{
             default:
                 break;
         }
+    }
+
+    public void initializePseudo(String p1, String p2,String p3 ,String p4){
+        playerR.setPseudo(p1);
+        playerB.setPseudo(p2);
+        playerG.setPseudo(p3);
+        playerY.setPseudo(p4);
     }
     
     public void initStartPosition(Button[] buttonArray){
@@ -142,20 +154,47 @@ public class GameBoardController extends SquareArray implements Initializable{
         if(this.turn.equals("G")){
             disable(G1, G2, G3, G4);
             playerG.getTeam().setWin();
+            if(playerG.getTeam().haveWin() == true){
+                enableWin(winG);
+            }
         }else if(this.turn.equals("B")){
             disable(B1, B2, B3, B4);
             playerB.getTeam().setWin();
-            System.out.println( playerB.getTeam().getPoints());
+            if(playerB.getTeam().haveWin() == true){
+                enableWin(winB);
+            }
         }else if(this.turn.equals("R")){
             disable(R1, R2, R3, R4);
             playerR.getTeam().setWin();
+            if(playerR.getTeam().haveWin() == true){
+                enableWin(winR);
+            }
         }else if(this.turn.equals("Y")){
             disable(Y1, Y2, Y3, Y4);
             playerY.getTeam().setWin();
+            if(playerY.getTeam().haveWin() == true){
+                enableWin(winY);
+            }
         }
         
-        nextPlayer();
-        DiceButton.setDisable(false);
+        if(dice == 6 && replay == false){
+            DiceButton.setDisable(false);
+            replay = true;
+        }else if(witchPiece(getButton(piece)).isPathCompleted()==true && replay == false){
+            DiceButton.setDisable(false);
+            replay = true;
+        }else{
+            replay = false;
+            nextPlayer();
+            DiceButton.setDisable(false);
+        }
+        if(this.nbWinner >= 3){
+            DiceButton.setDisable(true);
+            playerTurn.setStyle("-fx-background-color: black");
+            playerTurn.setTextFill(Color.WHITE);
+            playerTurn.setText("END");
+        }
+        
     }
 
     @FXML
@@ -248,7 +287,25 @@ public class GameBoardController extends SquareArray implements Initializable{
         b1.toBack();
     }
 
+    public void enableWin(ImageView colorView){
+        String url = new File( "" ).getAbsolutePath();
+        switch (this.nbWinner) {
+            case 0:
+                colorView.setImage(new Image("file:"+url+"/LudoGame/files/Couronne1.png"));
+                break;
+            case 1:
+                colorView.setImage(new Image("file:"+url+"/LudoGame/files/Couronne2.png"));
+                break;
+            case 2:
+                colorView.setImage(new Image("file:"+url+"/LudoGame/files/Couronne3.png"));
+                break;
+        }
+        System.out.println("WIN"+colorView);
+        this.nbWinner++;
+    }
+
     public void nextPlayer(){
+
         if(this.turn.equals("G")){
             this.turn = "R";
             if(playerR.getTeam().haveWin()){

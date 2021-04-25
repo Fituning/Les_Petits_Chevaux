@@ -315,7 +315,7 @@
                <graphic>
                   <ImageView id="PieceG1" fx:id="PieceG1411144" fitHeight="36.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../files/piece3R.png" />
+                        <Image url="@../files/piece4R.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -326,6 +326,10 @@
                   <Insets bottom="-8.0" left="-8.0" right="-8.0" top="-8.0" />
                </padding>
             </Button>
+            <ImageView fx:id="winR" fitHeight="70.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+            <ImageView fx:id="winG" fitHeight="70.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="11" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+            <ImageView fx:id="winB" fitHeight="70.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="11" GridPane.valignment="CENTER" />
+            <ImageView fx:id="winY" fitHeight="70.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="11" GridPane.halignment="CENTER" GridPane.rowIndex="11" GridPane.valignment="CENTER" />
          </children>
          <effect>
             <Glow />
