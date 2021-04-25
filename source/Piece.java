@@ -89,17 +89,16 @@ public void outside(Piece p1,int di){
     }
 
     public boolean canBePlayed(Piece p1, int dice){
-        if(58-p1.getPiecePath().getPathPosition()<=dice){
-            return false;
-        }
-        else{
+        if(57-p1.getPiecePath().getPathPosition()>=dice){
             return true;
         }
-
+        else{
+            return false;
+        }
     }
 
     public boolean isPathCompleted(Piece p1){
-        if(58-p1.getPiecePath().getPathPosition()==0){
+        if(57-p1.getPiecePath().getPathPosition()==0){
             p1.setPathCompleted(true);
             return true;
         }
