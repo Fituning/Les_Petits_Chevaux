@@ -11,7 +11,7 @@ public class Main extends SquareArray{
     public static void main(String[] args) {
 //trying to implement the game loop
 //player initialisation (not sure if it is the best way)
-Random random = new Random();
+/*Random random = new Random();
 int dice;
 dice = 1+random.nextInt(6);
 Square[] squareArray = new Square[57];
@@ -91,10 +91,10 @@ while(player1.getTeam().win(player1)==false || player2.getTeam().win(player2)==f
 
 
 //...
-}
+}*/
         /**** Zone debug sale de Carlo *****/
 
-        /*Square[] squareArray2 = new Square[52];
+        Square[] squareArray2 = new Square[52];
         squareArray2=initSquares();
         for(int i=0; i< 52;i++){
             System.out.println(squareArray2[i]);
@@ -112,15 +112,15 @@ while(player1.getTeam().win(player1)==false || player2.getTeam().win(player2)==f
         squareArrayYellow=initSquaresColor(Color.YELLOW);
         for(int i=0; i< 6;i++){
             System.out.println(squareArrayYellow[i]);
-        }*/
-        /*Square[] squareArray = new Square[57];
+        }
+        Square[] squareArray = new Square[57];
         squareArray=initSquares();
 
         Piece PieceG1 = new Piece(Color.RED, squareArray);
         Piece PieceG2 = new Piece(Color.BLUE, squareArray);
         for(int i=0; i< 57;i++){
             System.out.println(PieceG1.getPieceSquare(i));
-        }*/
+        }
         
         /**** Zone debug sale de Cécé ****/
         

@@ -36,20 +36,20 @@ public class GameBoardController extends SquareArray implements Initializable{
     private String turn = new String("G");
     private int dice;
 
-    private Player player1=new Player();
-    private Player player2=new Player();
-    private Player player3=new Player();
-    private Player player4=new Player();
+    private Player playerR=new Player();
+    private Player playerB=new Player();
+    private Player playerG=new Player();
+    private Player playerY=new Player();
 
     @Override
     public void initialize(URL location, ResourceBundle resources){
         Square[] squareArray = new Square[57];
         squareArray=initSquares();
         
-        player1.initPlayers(player1,1,squareArray);
-        player2.initPlayers(player2,2,squareArray);
-        player3.initPlayers(player3,3,squareArray);
-        player4.initPlayers(player4,4,squareArray);
+        playerR.initPlayers(playerR,1,squareArray);
+        playerB.initPlayers(playerB,2,squareArray);
+        playerG.initPlayers(playerG,3,squareArray);
+        playerY.initPlayers(playerY,4,squareArray);
 
         Random random = new Random();
         int start;
@@ -124,59 +124,21 @@ public class GameBoardController extends SquareArray implements Initializable{
         String piece = new String(event.toString().split("'")[1]);
         int x,y;
         System.out.println(piece);
-        switch (piece) {
-            case "G1":
-                x = GridPane.getColumnIndex(G1);
-                y = GridPane.getRowIndex(G1);
-                y++;
-                GridPane.setConstraints(G1, x, y);
-                break;
-            case "G2":
-            x = GridPane.getColumnIndex(G2);
-            y = GridPane.getRowIndex(G2);
-            y++;
-            GridPane.setConstraints(G2, x, y);
-                break;
-            case "G3":
-            x = GridPane.getColumnIndex(G3);
-            y = GridPane.getRowIndex(G3);
-            y++;
-            GridPane.setConstraints(G3, x, y);
-                break;
-            case "G4":
-            x = GridPane.getColumnIndex(G4);
-            y = GridPane.getRowIndex(G4);
-            y++;
-            GridPane.setConstraints(G4, x, y);
-                break;
-            case "B1":
-            x = GridPane.getColumnIndex(B1);
-            y = GridPane.getRowIndex(B1);
-            y++;
-            GridPane.setConstraints(B1, x, y);
-                break;
-            case "B2":
-            x = GridPane.getColumnIndex(B2);
-            y = GridPane.getRowIndex(B2);
-            y++;
-            GridPane.setConstraints(B2, x, y);
-                break;
-            case "B3":
-            x = GridPane.getColumnIndex(B3);
-            y = GridPane.getRowIndex(B3);
-            y++;
-            GridPane.setConstraints(B3, x, y);
-                break;
-            case "B4":
-            x = GridPane.getColumnIndex(B4);
-            y = GridPane.getRowIndex(B4);
-            y++;
-            GridPane.setConstraints(B4, x, y);
-                break;
-        
-            default:
-                break;
+        if(witchPiece(getButton(piece)).getPiecePath().isInPist()==false){
+            witchPiece(getButton(piece)).getPiecePath().setInPist(true);
+            x = witchPiece(getButton(piece)).getPiecePath().getSquare().getSquarePosition().getX();
+            y = witchPiece(getButton(piece)).getPiecePath().getSquare().getSquarePosition().getY();
+            GridPane.setConstraints(getButton(piece), x, y);
+        }else{
+            witchPiece(getButton(piece)).setCurrentPosition(dice);
+            x = witchPiece(getButton(piece)).getPiecePath().getSquare().getSquarePosition().getX();
+            y = witchPiece(getButton(piece)).getPiecePath().getSquare().getSquarePosition().getY();
+            System.out.println(witchPiece(getButton(piece)).getcurrentPosition());
+            System.out.println(witchPiece(getButton(piece)).getPiecePath().getPathPosition());
+            System.out.println(x+","+y);
+            GridPane.setConstraints(getButton(piece), x, y);
         }
+        
 
         nextPlayer();
         DiceButton.setDisable(false);
@@ -250,7 +212,10 @@ public class GameBoardController extends SquareArray implements Initializable{
     }
 
     public int enable(Button btn){
-        if(dice == 6){
+        if(witchPiece(btn).getPiecePath().isInPist()==false && dice == 6){
+            btn.setDisable(false);
+            return 0;
+        }else if(witchPiece(btn).getPiecePath().isInPist()==true){
             btn.setDisable(false);
             return 0;
         }else{
@@ -275,6 +240,87 @@ public class GameBoardController extends SquareArray implements Initializable{
             this.turn = "G";
             playerTurn.setStyle("-fx-background-color: #a7ec1c");
             playerTurn.setText("G");
+        }
+    }
+
+    public Piece witchPiece(Button btn){
+        if(btn.equals(B1)){
+            return playerB.getTeam().getPieces(1);
+        }else if(btn.equals(B2)){
+            return playerB.getTeam().getPieces(2);
+        }else if(btn.equals(B3)){
+            return playerB.getTeam().getPieces(3);
+        }else if(btn.equals(B4)){
+            return playerB.getTeam().getPieces(4);
+        }else if(btn.equals(R1)){
+            return playerR.getTeam().getPieces(1);
+        }else if(btn.equals(R2)){
+            return playerR.getTeam().getPieces(2);
+        }else if(btn.equals(R3)){
+            return playerR.getTeam().getPieces(3);
+        }else if(btn.equals(R4)){
+            return playerR.getTeam().getPieces(4);
+        }else if(btn.equals(G1)){
+            return playerG.getTeam().getPieces(1);
+        }else if(btn.equals(G2)){
+            return playerG.getTeam().getPieces(2);
+        }else if(btn.equals(G3)){
+            return playerG.getTeam().getPieces(3);
+        }else if(btn.equals(G4)){
+            return playerG.getTeam().getPieces(4);
+        }else if(btn.equals(Y1)){
+            return playerY.getTeam().getPieces(1);
+        }else if(btn.equals(Y2)){
+            return playerY.getTeam().getPieces(2);
+        }else if(btn.equals(Y3)){
+            return playerY.getTeam().getPieces(3);
+        }else if(btn.equals(Y4)){
+            return playerY.getTeam().getPieces(4);
+        }else{
+            return null;
+        }
+    }
+
+    public Button getButton(String btnName){
+        switch (btnName){
+            case "G1":
+                return G1;
+            case "G2":
+                return G3;
+            case "G3":
+                return G3;
+            case "G4":
+                return G4;
+                
+            case "B1":
+                return B1;
+            case "B2":
+                return B3;
+            case "B3":
+                return B3;
+            case "B4":
+                return B4;
+            
+            case "R1":
+                return R1;
+            case "R2":
+                return R3;
+            case "R3":
+                return R3;
+            case "R4":
+                return R4;
+
+            case "Y1":
+                return Y1;
+            case "Y2":
+                return Y3;
+            case "Y3":
+                return Y3;
+            case "Y4":
+                return Y4;
+            default:
+                return null;
+                
         }
     }
 

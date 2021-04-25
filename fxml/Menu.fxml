@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="619.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="520.0" prefWidth="619.0" style="-fx-background-color: #434141;" />
+      <ImageView fitHeight="496.0" fitWidth="619.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../files/StartBackground.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="183.0" fitWidth="315.0" layoutX="152.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../files/LogoB.png" />
+         </image>
+      </ImageView>
+      <Text fontSmoothingType="LCD" layoutX="253.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="test" textAlignment="CENTER" wrappingWidth="113.205078125">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Text>
+      <RadioButton contentDisplay="RIGHT" layoutX="40.0" layoutY="328.0" mnemonicParsing="false" style="-fx-border-color: green;" text="V" />
+      <RadioButton layoutX="210.0" layoutY="328.0" mnemonicParsing="false" text="R" />
+      <RadioButton layoutX="271.0" layoutY="328.0" mnemonicParsing="false" text="V" />
+      <RadioButton layoutX="402.0" layoutY="328.0" mnemonicParsing="false" text="Y" />
+   </children>
+</Pane>

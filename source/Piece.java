@@ -32,6 +32,7 @@ Piece(int id){
 //could be use if a pawn must be set to a particular square
 public void setPiecePosition(int pos){
     this.currentPosition=pos;
+    this.piecePath.setPathPosition(this.currentPosition);
 }
 
 
@@ -56,8 +57,9 @@ public void outside(Piece p1,int di){
         return this.currentPosition;
     }
     
-    public void setCurrentPosition(int currentPosition) {
-    	this.currentPosition = currentPosition;
+    public void setCurrentPosition(int addPosition) {
+    	this.currentPosition += addPosition;
+        this.piecePath.setPathPosition(this.currentPosition);
     }
 
     public Color getColor() {

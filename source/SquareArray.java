@@ -8,7 +8,7 @@ public class SquareArray{
 
     public static Square[] initSquares(){
         Square[] squareArray = new Square[52];
-        Position squarePosition = new Position(9, 1);
+        Position squarePosition = new Position(8, 0);
         int numberSquare=0;
         int translation[]  = {1,2,1,3,1,3,4,3,4,2,4,2};
         int t = 0;
@@ -69,25 +69,25 @@ public class SquareArray{
     public static Square[] initSquaresColor(Color color){
         Square[] squareArray = new Square[6];
         if(color.equals(Color.GREEN)){
-            Position squarePosition = new Position(8, 2);
+            Position squarePosition = new Position(7, 1);
             for(int i=0;i<6;i++){
                 squareArray[i]= new Square(true,squarePosition.getX(),squarePosition.getY(),"G"+(i+1));
                 squarePosition.down();
             }
         }else if(color.equals(Color.YELLOW)){
-            Position squarePosition = new Position(14, 8);
+            Position squarePosition = new Position(13, 7);
             for(int i=0;i<6;i++){
                 squareArray[i]= new Square(true,squarePosition.getX(),squarePosition.getY(),"Y"+(i+1));
                 squarePosition.left();
             }
         }else if(color.equals(Color.BLUE)){
-            Position squarePosition = new Position(8, 14);
+            Position squarePosition = new Position(7, 13);
             for(int i=0;i<6;i++){
                 squareArray[i]= new Square(true,squarePosition.getX(),squarePosition.getY(),"B"+(i+1));
                 squarePosition.up();
             }
         }else if(color.equals(Color.RED)){
-            Position squarePosition = new Position(2, 8);
+            Position squarePosition = new Position(1, 7);
             for(int i=0;i<6;i++){
                 squareArray[i]= new Square(true,squarePosition.getX(),squarePosition.getY(),"R"+(i+1));
                 squarePosition.right();

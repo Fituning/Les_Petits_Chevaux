@@ -35,6 +35,9 @@ public class Team {
     public Piece[] getPieces() {
         return piecesArray;
     }
+    public Piece getPieces(int number) {
+        return piecesArray[number-1];
+    }
     public Color getTeamColor() {
         return teamColor;
     }

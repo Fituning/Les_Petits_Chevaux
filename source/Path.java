@@ -31,12 +31,15 @@ public class Path extends SquareArray {
         return this.pathPosition;
     }
 
-    public void setPathPosition(int pathPosition) {
-        this.pathPosition = pathPosition;
+    public void setPathPosition(int newPosition) {
+        this.pathPosition = newPosition;
     }
 
     public Square getSquare(int i){
         return squareArray[i];
+    }
+    public Square getSquare(){
+        return squareArray[this.pathPosition];
     }
 
 
