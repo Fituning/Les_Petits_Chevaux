@@ -3,6 +3,8 @@ package LudoGame.source;
 
 import java.awt.Color;
 
+import javafx.css.Size;
+
 
 
 public class Piece {
@@ -84,6 +86,27 @@ public void outside(Piece p1,int di){
 
     public void setPathCompleted(boolean pathCompleted) {
         this.pathCompleted = pathCompleted;
+    }
+
+    public boolean canBePlayed(Piece p1, int dice){
+        if(58-p1.getPiecePath().getPathPosition()<=dice){
+            return false;
+        }
+        else{
+            return true;
+        }
+
+    }
+
+    public boolean isPathCompleted(Piece p1){
+        if(58-p1.getPiecePath().getPathPosition()==0){
+            p1.setPathCompleted(true);
+            return true;
+        }
+        else{
+            return false;
+        }
+
     }
 
 
