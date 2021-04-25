@@ -41,7 +41,7 @@ public class Path extends SquareArray {
 
 
 //does not work for the end game
-    public Position refreshPawn(Piece p1, int dice){
+    /*public Position refreshPawn(Piece p1, int dice){
     
         this.squareArray[p1.getPiecePath().getPathPosition()].removePieceIn(p1);
        
@@ -56,7 +56,7 @@ public class Path extends SquareArray {
         //System.out.print("coordonée Y:"+this.squareArray[p1.getPiecePath().getPathPosition()].getSquarePosition().getY()+"\n");
         return  this.squareArray[p1.getPiecePath().getPathPosition()].getSquarePosition();
         
-    }
+    }*/
 
 
     public void initPath(Color color, Square[] defaultArray){
