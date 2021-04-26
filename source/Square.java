@@ -29,7 +29,7 @@ public class Square {
 	}
 
 	
-	//marche
+	//works
 	  public void comparePiecePosition(Piece p1, Square[] sq){
 			 int lim = sq[p1.getPiecePath().getPathPosition()].getPieceIn().size();
 				if(sq[p1.getPiecePath().getPathPosition()].getPieceIn()!=null){
