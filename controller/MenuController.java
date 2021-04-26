@@ -65,7 +65,7 @@ public class MenuController {
         getYName();
         
         
-        if(GName != null && BName != null && RName != null && YName != null){
+        if(GName.length() != 0 && BName.length() != 0 && RName.length() != 0 && YName.length() != 0){
             try {
                 URL fxmlURL = getClass().getResource("../fxml/GameBoard.fxml");
                 FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL);
@@ -90,19 +90,19 @@ public class MenuController {
                 e.printStackTrace();
             }
         }else{
-            if(RName== null){
+            if(RName.length() == 0){
                 Rtext.setPromptText("please enter a Gamer Tag");
                 Rtext.setStyle("-fx-prompt-text-fill: #a01010");
             }
-            if(BName== null){
+            if(BName.length() == 0){
                 Btext.setPromptText("please enter a Gamer Tag");
                 Btext.setStyle("-fx-prompt-text-fill: #a01010");
             }
-            if(GName== null){
+            if(GName.length() == 0){
                 Gtext.setPromptText("please enter a Gamer Tag");
                 Gtext.setStyle("-fx-prompt-text-fill: #a01010");
             }
-            if(YName== null){
+            if(YName.length() == 0){
                 Ytext.setPromptText("please enter a Gamer Tag");
                 Ytext.setStyle("-fx-prompt-text-fill: #a01010");
             }
