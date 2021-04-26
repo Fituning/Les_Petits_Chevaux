@@ -65,7 +65,7 @@ public class MenuController {
         getYName();
         
         
-        // if(GName != null && BName != null && RName != null && YName != null){
+        if(GName != null && BName != null && RName != null && YName != null){
             try {
                 URL fxmlURL = getClass().getResource("../fxml/GameBoard.fxml");
                 FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL);
@@ -89,24 +89,24 @@ public class MenuController {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        // }else{
-        //     if(RName== null){
-        //         Rtext.setPromptText("please enter a Gamer Tag");
-        //         Rtext.setStyle("-fx-prompt-text-fill: #a01010");
-        //     }
-        //     if(BName== null){
-        //         Btext.setPromptText("please enter a Gamer Tag");
-        //         Btext.setStyle("-fx-prompt-text-fill: #a01010");
-        //     }
-        //     if(GName== null){
-        //         Gtext.setPromptText("please enter a Gamer Tag");
-        //         Gtext.setStyle("-fx-prompt-text-fill: #a01010");
-        //     }
-        //     if(YName== null){
-        //         Ytext.setPromptText("please enter a Gamer Tag");
-        //         Ytext.setStyle("-fx-prompt-text-fill: #a01010");
-        //     }
-        // }
+        }else{
+            if(RName== null){
+                Rtext.setPromptText("please enter a Gamer Tag");
+                Rtext.setStyle("-fx-prompt-text-fill: #a01010");
+            }
+            if(BName== null){
+                Btext.setPromptText("please enter a Gamer Tag");
+                Btext.setStyle("-fx-prompt-text-fill: #a01010");
+            }
+            if(GName== null){
+                Gtext.setPromptText("please enter a Gamer Tag");
+                Gtext.setStyle("-fx-prompt-text-fill: #a01010");
+            }
+            if(YName== null){
+                Ytext.setPromptText("please enter a Gamer Tag");
+                Ytext.setStyle("-fx-prompt-text-fill: #a01010");
+            }
+        }
     }
 
     public void getRName(){
