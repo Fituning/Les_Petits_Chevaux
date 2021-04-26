@@ -138,6 +138,7 @@ public class GameBoardController extends SquareArray implements Initializable{
                             y = n.getInitPosition().getY();
                             n.setPiecePosition(0);
                             n.getPiecePath().setInPist(false);
+                            n.getPiecePath().getSquare().removePieceIn(n);
                             GridPane.setConstraints(witchButton(n), x, y);
                         }
                     }
