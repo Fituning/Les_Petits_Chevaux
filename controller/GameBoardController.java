@@ -57,10 +57,6 @@ public class GameBoardController extends SquareArray implements Initializable{
         playerG.initPlayers(playerG,3,squareArray);
         playerY.initPlayers(playerY,4,squareArray);
 
-        // playerB.getTeam().setPoints(4);
-        // playerG.getTeam().setPoints(4);
-        // playerY.getTeam().setPoints(4);
-
 
         Button btnArray[] ={R1,R2,R3,R4,B1,B2,B3,B4,G1,G2,G3,G4,Y1,Y2,Y3,Y4};
         initStartPosition(btnArray);
@@ -73,22 +69,22 @@ public class GameBoardController extends SquareArray implements Initializable{
             case 1:
                 turn = "G";
                 playerTurn.setStyle("-fx-background-color: #a7ec1c");
-                playerTurn.setText("G");
+                playerTurn.setText("G\nturn");
                 break;
             case 2:
                 turn = "R";
                 playerTurn.setStyle("-fx-background-color: #cc0000");
-                playerTurn.setText("R");
+                playerTurn.setText("R\nturn");
                 break;
             case 3:
                 turn = "B";
                 playerTurn.setStyle("-fx-background-color: #7827bb");
-                playerTurn.setText("V");
+                playerTurn.setText("B\nturn");
                 break;
             case 4:
                 turn = "Y";
                 playerTurn.setStyle("-fx-background-color: #eaf517");
-                playerTurn.setText("Y");
+                playerTurn.setText("Y\nturn");
                 break;
             default:
                 break;
@@ -312,7 +308,7 @@ public class GameBoardController extends SquareArray implements Initializable{
                 nextPlayer();
             }else{
                 playerTurn.setStyle("-fx-background-color: #cc0000");
-                playerTurn.setText("R");
+                playerTurn.setText(playerR.getPseudo()+"\nturn");
             } 
         }else if(this.turn.equals("R")){
             this.turn = "B";
@@ -320,7 +316,7 @@ public class GameBoardController extends SquareArray implements Initializable{
                 nextPlayer();
             }else{
                 playerTurn.setStyle("-fx-background-color: #7827bb");
-                playerTurn.setText("V");
+                playerTurn.setText(playerB.getPseudo()+"\nturn");
             }
         }else if(this.turn.equals("B")){
             this.turn = "Y";
@@ -328,7 +324,7 @@ public class GameBoardController extends SquareArray implements Initializable{
                 nextPlayer();
             }else{
                 playerTurn.setStyle("-fx-background-color: #eaf517");
-                playerTurn.setText("Y");
+                playerTurn.setText(playerY.getPseudo()+"\nturn");
             }
         }else if(this.turn.equals("Y")){
             this.turn = "G";
@@ -336,7 +332,7 @@ public class GameBoardController extends SquareArray implements Initializable{
                 nextPlayer();
             }else{
                 playerTurn.setStyle("-fx-background-color: #a7ec1c");
-                playerTurn.setText("G");
+                playerTurn.setText(playerG.getPseudo()+"\nturn");
             }
         }
     }

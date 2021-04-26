@@ -14,8 +14,6 @@ import javafx.stage.Stage;
      
     public class GUI extends Application{ 
         
-		
-		
         @Override
 	public void start(Stage primaryStage) {
 		try {
@@ -39,7 +37,6 @@ import javafx.stage.Stage;
 	}
         
     public static void main(String[] args) {
-
     	launch(args);
     }
     

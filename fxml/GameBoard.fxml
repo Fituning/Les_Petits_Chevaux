@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -335,6 +336,9 @@
             <Glow />
          </effect>
       </GridPane>
-      <Label fx:id="playerTurn" alignment="CENTER" minHeight="-Infinity" prefHeight="36.0" prefWidth="42.0" style="-fx-background-color: white; -fx-border-color: black;" text="R" />
+      <Label fx:id="playerTurn" alignment="CENTER" minHeight="-Infinity" prefHeight="36.0" prefWidth="42.0" style="-fx-background-color: white; -fx-border-color: black;" text="R" textAlignment="CENTER">
+         <font>
+            <Font size="12.0" />
+         </font></Label>
    </children>
 </StackPane>
