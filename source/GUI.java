@@ -21,7 +21,7 @@ import javafx.stage.Stage;
 			FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL);
 			Node root = fxmlLoader.load();
 
-			Scene scene = new Scene((Pane) root, 620, 521);
+			Scene scene = new Scene((Pane) root, 597, 510);
 			primaryStage.setScene(scene);
 
 			String url = new File( "" ).getAbsolutePath();
